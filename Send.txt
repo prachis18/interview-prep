@@ -1,0 +1,2710 @@
+Questions:-
+
+****
+*********************************----------------------Values--------------------------*******************************************
+•	4+ years Experienced Automation Tester with a demonstrated history of working in Financial Services Industry
+•	Extensive knowledge of Agile Methodologies, Software Testing including designing of Automation Test Scripts, Execution of Test Cases, Defect Logging and Tracking
+•	Familiar with Selenium, Cucumber, BORG, JIRA, Jenkins, RAML, aPaaS, WAS, Mainframe
+•	Expertise in Tools: Eclipse, Oracle SQL Developer, Postman API, Bladelogic, MS Excel, etc
+•	Worked on Open Banking APIs, Appzillon tool and other Bank Journeys via both Automation & Manual
+•	Basic knowledge of Performance Testing, c# & .NET
+•	Hobbies: Badminton, TT, Travelling, Diary writing, Singing, etc.
+•	Idol persons: Warren Buffet, Willian Hennery Gates, Jordan Belfort, Harshad Mehta.
+•	Idol writers: Robert T Kiyosaki, Benjamin Graham.
+
+Accomplishment:
+•	Java Fundamentals: The Java Language
+•	Introduction of Testing in JAVA
+•	Automated Web Testing with Selenium & Webdriver using JAVA
+•	Automated Tests with PHPUnit
+•	Eclipse Guided Tour for JAVA
+•	Data Science: Executive Briefing
+
+Miscellaneous:
+•	Taking care of complete environment setup including all challenges i.e. Deployments via Jenkins/Openshift, Health check, cluster issue, route issue, quota managing, secrets managing, logs cleaning, API issues, Mainframe issues, colaborating with different teams to fix issues
+•	Taking part in citizenship activities
+•	Helping colleagues in every situation in/off office
+•	Believe in ethical values i.e. Respect, Integrity, Stewardship, Service & Excellence
+
+*****************************************************************JAVA Testing*****************************************************************
+
+•	Assert:	Assettion are often used during testing to verify that some expected conditions is actually met. They are not usually used for released code.
+			At runtime, if the condition is true then no action will takes place. However if condition fails then AssertionError is thrown.
+		
+•	The abstract keyword is a non-access modifier, used for classes and methods.
+	Class: An abstract class is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+	Method: An abstract method can only be used in an abstract class, and it does not have a body.A method without body (no implementation) is known as abstract method. A method must always be declared in an abstract class.
+
+•	JVM:		Offers runtime environments for codes to be executed
+•	JDK:		Collection of files needed during runtime by JVM
+•	JRE:		Needed to write and execute a program that contains the JRE with necessory development tool
+•	Tools:		Basic tools like Jar files, Security tools, JAVA Web Services Tools, etc
+
+•	Source Code:	Any collection of code, with or without comments, written using a human-readable programming language, usually as plain text.
+
+•	Default:	Declarations are visible only within the package (package private)
+•	Private:	Declarations are visible within the class only
+•	Protected:	Declarations are visible within the package or all subclasses
+•	Public:		Declarations are visible everywhere
+
+
+ The Protected access specifier is visible within the same package and also visible in the subclass
+ whereas the Default is a package level access specifier and it can be visible in the same package
+
+
+•	Interface:	An interface is declared by using the interface keyword.
+	It provides total abstraction; means all the methods in an interface are declared with the empty body, and all the fields are public, static and final by default.
+	A class that implements an interface must implement all the methods declared in the interface.
+
+•	OOPS Concept:-
+•	Object:			Any entity that has state and behavior is known as an object. For example, a chair, pen, table, keyboard, bike, etc. It can be physical or logical.
+•	Class:			Collection of objects is called class. It is a logical entity.
+
+•	Inheritance:	When one object acquires all the properties and behaviors of a parent object, it is known as inheritance.
+					It provides code reusability. It is used to achieve runtime polymorphism.
+					Eg. public class Programmer extends Employee{
+		Single:			B extends A
+		Multilevel:		C extends B, B extends A
+		Hierarchical:	C extends A, B extends A
+		Multiple:		C extends B, C extends A
+		Hybrid:			D extends B, D extends C, C extends A, B extends A
+	
+Is it possible to restrict Inheritance?
+	You can prevent the class from being subclassed using Final Keyword in the class decleration, Making Final Method, Using Private Constructor.
+
+		
+•	Polymorphism:	Polymorphism in Java is a concept by which we can perform a single action in different ways.
+					Types:	Method Overloading is an example of static polymorphism compile-time polymorphism
+							Method Overriding is an example of dynamic polymorphism and runtime polymorphism;
+					An important example of polymorphism is how a parent class refers to a child class object.
+					
+					Overriding is having 2 methods with same names and parameters
+If subclass (child class) has the same method as declared in the parent class, it is known as method overriding in Java. 
+Rules for Java Method Overriding
+
+    The method must have the same name as in the parent class
+    The method must have the same parameter as in the parent class.
+    There must be an IS-A relationship (inheritance).
+
+
+					Overloading occurs when 2 or more methods in 1 class have same method names but different parameters. Also known as Compile-time Polymorphism
+					
+Different ways to overload the method:
+
+There are two ways to overload the method in java
+
+    By changing number of arguments
+    By changing the data type
+					In Compile time Polymorphism, the call is resolved by the compiler.
+					Run time Polymorphism, the call is not resolved by the compiler  
+					
+					Static polymorphism is a type of polymorphism that collects the information to call a method during compile time.
+					Dynamic polymorphism is a type of polymorphism that collects the information to call a method at run time.
+
+
+ Can we overload java main() method?
+
+Yes, by method overloading. You can have any number of main methods in a class by method overloading. But JVM calls main() method which receives string array as arguments only.
+
+Can we override static method?
+
+No, a static method cannot be overridden. It can be proved by runtime polymorphism, so we will learn it later.
+
+
+Why can we not override static method?
+
+It is because the static method is bound with class whereas instance method is bound with an object. Static belongs to the class area, and an instance belongs to the heap area. 
+
+•	Abstraction:	Abstraction is a process of hiding the implementation details and showing only functionality to the user.
+					Eg. Phone-call, we don't know the internal processing.
+					Eg. Bike is an abstract class that contains only one abstract method run. Its implementation is provided by the Honda class.
+					An abstract class must be declared with an abstract keyword.
+					It can have abstract and non-abstract methods.
+					It cannot be instantiated.
+					It can have constructors and static methods also.
+					It can have final methods which will force the subclass not to change the body of the method.
+					
+					Static method/binding is a type where object is determined at compile-time
+					Dynamic method/binding is a type where object is determined at run-time
+
+•	Encapsulation:	Binding (or wrapping) code and data together into a single unit is known as encapsulation. For example, a capsule, it is wrapped with different medicines.
+					We can create a fully encapsulated class in Java by making all the data members of the class private.
+					The encapsulate class is easy to test.
+					Encapsulation is an attribute of an object, and it contains all data which is hidden. That hidden data can be restricted to the members of that class.
+					Levels are Public, Protected, Private, Internal, and Protected Internal.
+
+No, you cannot have a constructor within an interface in Java. 
+You can have only public, static, final variables and, public, abstract, methods as of Java7. 
+From Java8 onwards interfaces allow default methods and static methods.
+
+ 
+					
+Abstract class							Interface
+1) Abstract class can have abstract and non-abstract methods.	Interface can have only abstract methods. Since Java 8, it can have default and static methods also.
+2) Abstract class doesn't support multiple inheritance.			Interface supports multiple inheritance.
+3) Abstract class can have final, non-final, static and non-static variables.	Interface has only static and final variables.
+4) Abstract class can provide the implementation of interface.					Interface can't provide the implementation of abstract class.
+5) The abstract keyword is used to declare abstract class.		The interface keyword is used to declare interface.
+6) An abstract class can extend another Java class and implement multiple Java interfaces.	An interface can extend another Java interface only.
+7) An abstract class can be extended using keyword "extends".								An interface can be implemented using keyword "implements".
+8) A Java abstract class can have class members like private, protected, etc.				Members of a Java interface are public by default.
+9)Example:
+public abstract class Shape{
+public abstract void draw();
+}
+	Example:
+	public interface Drawable{
+	void draw();
+	}
+					
+•	Abstraction:	Abstraction is the method of hiding the unwanted information
+•	Encapsulation:	Encapsulation is a method to hide the data in a single entity or unit along with a method to protect information from outside
+
+•	Content Negotiation:	Process of selecting the best representation for a given response when there are multiple representations available
+
+•	Checked Exception:		Checked in compile-time only & should be handeled using Try-Catch-block or should be declared using throws keyword eg. FileNotFoundException & IOException
+•	Unchecked Exception:	Checked in run-time that mostly occurs due to bad data provided by user during user-program interaction e.g. NullPointerException & ArithmeticException
+
+•	Abstract Class:			Can only be subclassed and cannot be instanciated and may have static field and static methods
+•	Static Field/Method:	Static can be accessed without an instance of the class as these functions are universal and not specific to any individual
+
+•	Static Method:		It has a single copy for a class. Invoked by using its class reference.
+•	Instance Method:	It have multiple copies depending on the number of instances created for that particular class. Invoked by using the object reference.
+
+•	Constructors:		Used to initialize an object, invoked explicitly, name of constructor must be same as that of class, doesnot return any value
+•	Methods:			Used to exhibits functionality of an object, invoked implicitly, method name cannot be same as class name, may or may not return value
+
+•	Try:		Used to check a block of code for errors while it is being executed
+•	Catch:		Will only execute if any exception is thrown in try block
+•	Finally:	Will always execute after Try block whether exception is thrown or not unless return is applied
+
+•	List:	Type of Ordered Collection that maintains the elements in insertion order and also allows duplicate elements
+•	Set:	Type of Unordered Collection so no order found and also not allows duplicate elements & contains unique elements
+
+•	Set:	Contains only data elements & doesn't allow us to add the same elements in it.
+•	Map:	Contains the data in the key-value pair i.e. key and its value where it can have the same value for different keys
+
+•	HashMap:	Allows a single null key and multiple null values & allows heterogeneous elements because it does not perform sorting on keys.
+•	TreeMap:	Does not allow null keys but can have multiple null values & allows homogeneous values as a key because of sorting.
+
+	Homogeneous means the same type. Arrays are homogeneous, since you declare the single type as part of the definition.
+	Heterogeneous means diverse types. Class data tends to be heterogeneous as you have integers, strings, other classes, etcetera.
+
+•	HashSet:	It is the implementation of the Set interface. HashSet is backed by a hashmap.
+•	Tree set:	It implements sorted set. Tree set is backed by TreeMap. The tree set does not allow the null object. 
+
+•	WORA:	Write Once Run Anywhere, a 1995slogan created by Sun-Microsystems to illustrate cross plateform benefit of JAVA if JAVA-enabled system and is possible because of JVM
+
+•	Loop:			Used to repeatedly execute a certain statement or a block of statement
+•	For Loop:		Iterates a part of program multiple times and is used when the number of iterations are fixed
+•	While Loop:		Executes a part of programs repeatedly on the basiS of a given boolean condition and is used when number of iterations are not fixed
+•	Do-While Loop:	Executes a part of program atleast once and further depends of given boolean conditions and is used when number of iterations are not fixed but needs atleast once
+
+•	ClassLoader:	Used to load files before running JAVA Program
+•	Pointers:	Address of some location in memory. Java variable of object type stores a reference to an object, which is just a pointer giving the address of that object in memory.
+
+•	What is the Collection framework in Java?
+	Collection Framework is a combination of classes and interface, which is used to store and manipulate the data in the form of objects.
+ It provides various classes such as ArrayList, Vector, Stack, and HashSet, etc. and interfaces such as List, Queue, Set, etc. for this purpose.
+
+•	Diff btw HashSet & TreeSet?
+	HashSet maintains no order whereas TreeSet maintains ascending order.
+	HashSet impended by hash table whereas TreeSet implemented by a Tree structure.
+	HashSet performs faster than TreeSet.
+	HashSet is backed by HashMap whereas TreeSet is backed by TreeMap.
+
+•	What is the difference between Set and Map?
+	Set contains values only whereas Map contains key and values both.
+	Set contains unique values whereas Map can contain unique Keys with duplicate values.
+	Set holds a single number of null value whereas Map can include a single null key with n number of null values.
+
+•	What is the difference between HashSet and HashMap?
+	HashSet contains only values whereas HashMap includes the entry (key, value). HashSet can be iterated, but HashMap needs to convert into Set to be iterated.
+	HashSet implements Set interface whereas HashMap implements the Map interface
+	HashSet cannot have any duplicate value whereas HashMap can contain duplicate values with unique keys.
+	HashSet contains the only single number of null value whereas HashMap can hold a single null key with n number of null values.
+
+•	What is the difference between HashMap and TreeMap?
+	HashMap maintains no order, but TreeMap maintains ascending order.
+	HashMap is implemented by hash table whereas TreeMap is implemented by a Tree structure.
+	HashMap can be sorted by Key or value whereas TreeMap can be sorted by Key.
+	HashMap may contain a null key with multiple null values whereas TreeMap cannot hold a null key but can have multiple null values.
+
+•	What is the difference between HashMap and Hashtable?
+	HashMap is not synchronized.	Hashtable is synchronized.
+	HashMap can contain one null key and multiple null values.	Hashtable cannot contain any null key or null value.
+	HashMap is not ?thread-safe,? so it is useful for non-threaded applications.	Hashtable is thread-safe, and it can be shared between various threads.
+	HashMap inherits the AbstractMap class	Hashtable inherits the Dictionary class.
+	
+•	What is the difference between Collection and Collections?
+	The Collection is an interface whereas Collections is a class.
+	The Collection interface provides the standard functionality of data structure to List, Set, and Queue. However, Collections class is to sort and synchronize the collection elements.
+	The Collection interface provides the methods that can be used for data structure whereas Collections class provides the static methods which can be used for various operation on a collection.
+
+•	What is the difference between Comparable and Comparator?
+	Comparable provides only one sort of sequence.	The Comparator provides multiple sorts of sequences.
+	It provides one method named compareTo().	It provides one method named compare().
+	It is found in java.lang package.	It is located in java.util package.
+	If we implement the Comparable interface, The actual class is modified.	The actual class is not changed.
+
+
+****************************************************************Selenium Testing**************************************************************
+
+•	Selenium:	Selenium is an open-source tool that automates web browsers. It provides a single interface that lets you write test scripts in programming languages.
+	Selenium WebDriver is an open-source API that allows you to programmatically interact with a browser on an operating system the way a real user would.
+
+•	CD/CI:		Continuous integration (CI) and continuous delivery (CD) embody a culture, set of operating principles, and collection of practices that enable application development teams to deliver code changes more frequently and reliably. The implementation is also known as the CI/CD pipeline.
+
+•	Scenario & Scenario-outline:	Scenario outline is exactly similar to the scenario structure, but the only difference is the provision of multiple inputs. In order to use scenario outlines, we do not need any smart idea, we just need to copy the same steps and re-execute the code.
+Eg..
+Feature: Login Functionality  
+Scenario Outline: Login functionality
+Username | Password
+username1 | password1
+username2 | password2
+username3 | password3
+username4 | password4
+In the above example, we have provided multiple input values for the variables "Username" and "Password". While executing the actual test, Cucumber will replace the variables with the provided input values.
+
+Once username1 has been executed with password1, the test will execute for the second iteration with another input value. Cucumber will follow this path until the completion of all provided values.
+
+
+A window is a webpage that will open when a user hits a URL. There are two types of windows in the Selenium - parent window and its child windows.
+The window handle is a unique identifier that stores the values of windows opened on a webpage and helps in window handling in Selenium.
+getWindowHandles( ) and getWindowHandles( ) handle windows in Selenium.
+The user has to switch from the parent window to the child window to work on them using switchTo( ) method.
+To close windows two methods exist driver.close( ) and driver.quit( )
+
+
+•	Webdriver?
+	Collection of Open Source APIs which is used to automate the testing of Web-Applications
+	It is an Interface and its parent class is SearchContext
+
+•	Chromedriver driver = new chromedriver();
+	It is restricted to chrome browser only
+	
+•	Framework:	A framework, or software framework, is a platform for developing software applications.
+				It provides a foundation on which software developers can build programs for a specific platform.
+				A framework may also include code libraries, a compiler, and other programs used in the software development process.
+				
+				A framework is a particular set of rules, ideas, or beliefs which you use in order to deal with problems or to decide what to do
+	
+•	Selenium framework:				A code structure for making code maintenance simpler, and code readability better.
+									A framework involves breaking the entire code into smaller pieces of code, which test a particular functionality.
+									It is made up of Test-Base Class, Page Object Model, Functions Library, Property Files, Test NG
+	Data-Driven Test Framework:		All of our test data is generated from some external files like Excel, CSV, XML or some database table.
+	
+	Keyword Driven Test Framework:	The basic working of the Keyword Driven Framework is to divide the Test Case into four different parts.
+	First is called as Test Step, second is Object of Test Step, third is Action on Test Object and fourth is Data for Test Object.
+
+Keyword Driven Framework in Selenium is a method used for speeding up automated testing by separating keywords for common set of functions and instructions. All the operations and instructions to be performed are 
+written in some external file like an Excel sheet. Users can easily control and specify the functionalities they want to test.
+
+	Hybrid Test Framework:			Hybrid Test framework is a concept where we are using the advantage of both Keyword and Data-driven framework.
+	
+•	Difference between driver.get() and driver.navigateTo()?
+	driver.get() helps in redirecting to a particular page and it waits for page to be loaded and also helps in retrieving the title of a web page
+	driver.navigateTo() helps in redirecting next and previous page both as it maintains cookies and does not wait for a page to be loaded
+	
+•	Different Types of Waits?
+	Implicit wait:	Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time before throwing an exception.
+					Once this time is set, WebDriver will wait for the element before the exception occurs.
+					Once the command is in place, Implicit Wait stays in place for the entire duration for which the browser is open.
+					driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+					
+	Explicit wait:	By using Explicit Wait command, the WebDriver is directed to wait until a certain condition occurs before proceeding with executing the code.
+					This causes an unnecessary delay in executing the test script.
+					Explicit wait is more intelligent, but can only be applied for specified elements.
+					WebDriverWait w = new WebDriverWait(driver,);
+					w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("<<xpath expression>>")));
+					
+	Fluent wait:	The Fluent Wait command defines the maximum amount of time for Selenium WebDriver to wait for a certain condition to appear.
+					To put it simply, Fluent Wait looks for a web element repeatedly at regular intervals until timeout happens or until the object is found.
+					Wait<WebDriver> w = new
+					FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+					
+	Static wait:	Used to pause the execution for a specified amount of time
+					
+•	Action classes?
+	Used to handle Keyboard and mouse events. Handeling includes operations such as Drag-&-Drop, Clicking on multiple elements with a control Key, etc..
+	
+•	File upload functionality in selenium?
+	via simply using sendKeys() method on file select input field or via Robot or Sikuli tool.
+
+•	Sikuli tool?
+	Sikuli is a powerful and open source tool for test automation. It can automate anything which is displayed on the screen.
+	It identifies the objects by using image recognition and control GUI components.
+   Sikuli						   Vs     Selenium:-
+It provides extensive support to automate flash objects		It cannot automate flash objects like video player, audio player
+It has simple API											It has got complicated API
+It uses a visual match to find elements on the screen.		It does not have visual match
+So, we can automate anything we see on the screen
+It can automate the web as well as windows application		It can automate only web applications
+
+
+•	What is POM (Page Object Model): Design pattern that helps create object repositories for the web elements that improves code reusability and readability.
+	'
+•	What is a pause on an exception in Selenium IDE?
+	It is top right corner of the IDE. When the script finds an exception it pauses at that particular statement and enters a debug mode. The entire test case does not fail and hence the user can rectify the error immediately. 
+	
+•	Difference between find element or find elements?
+	Find element:	Throws NoSuchElementException if the element is not found and detects a unique web element
+	Find elements:	Returns an empty list if no matching element is found & also returns a collection of matching elements
+
+•	What is the difference between abstract class and interface?
+	Abstract class can inherit another class using extends keyword and implement an interface. Interface can inherit only an interface.
+	Abstract class can be inherited using extends keyword. Interface can only be implemented using implements keyword.
+
+•	Private:	Used for data encapsulation and can use values private via get-set method
+•	Final:		A keyword which cannot be inherited or extended e.g. Wrapper Class i.e. always Final
+
+•	Wrapper class:It is a class which contains the primitive data types (int, char, short, byte, etc).
+
+•	Types of navigation commands:	driver.navigate().to("https://www.ebay.in/");, driver.navigate().refresh();, driver.navigate().forward();, driver.navigate().back();
+
+•	driver.close(); closes current window while driver.quit(); closes all
+
+•	Type text in an input box:	WebElement email = driver.findElement(By.id(“email”)); then email.sendKeys(“abcd.efgh@gmail.com”);
+								WebElement password = driver.findElement(By.id(“Password”)); then password.sendKeys(“abcdefgh123”);
+								
+•	Click on a hyperlink:		driver.findElement(By.linkText(“Today’s deals”)).click();	{when direct}
+								driver.findElement(By.partialLinkText(“Service”)).click();	{when parenthesis}
+
+•	Assert title of web-page:	String actualTitle = driver.getTitle(); or Assert.assertEquals(actualTitle, expectedTitle);
+
+
+Moreover, you can switch to immediate parent iframe using method switchTo().parentFrame().
+You can switch to the main web page from child iframe using method switchTo().defaultContent().
+*******************************************************************SQL Testing****************************************************************
+
+•	How to Find Duplicate Values in SQL?
+	SELECT OrderID, COUNT(OrderID) /n FROM Orders /n GROUP BY OrderID /n HAVING COUNT(OrderID)>1
+
+•	How to eleminate duplicate records in a table?
+	Select distinct * from employees
+	
+•	How to drop Primary Key on Employee Table?
+	Alter table employee drop constraint employee_pk
+	
+•	How to fetch top 10 records from Employee table?
+	SELECT * FROM Worker ORDER BY Salary DESC LIMIT 10;
+
+•	Write an SQL query to determine the nth (say n=5) highest salary from a table?
+	SELECT Salary FROM Worker ORDER BY Salary DESC LIMIT n-1,1;
+	
+•	Write an SQL query to fetch the list of employees with the same salary?
+	Select distinct W.WORKER_ID, W.FIRST_NAME, W.Salary from Worker W, Worker W1 where W.Salary = W1.Salary and W.WORKER_ID != W1.WORKER_ID;
+	
+•	Write an SQL query to fetch the first 50% records from a table?
+	SELECT * FROM WORKER WHERE WORKER_ID <= (SELECT count(WORKER_ID)/2 from Worker);
+	
+•	Write an SQL query to fetch the first row of a table?
+	Select * from Worker where WORKER_ID = (SELECT min(WORKER_ID) from Worker);
+
+•	How to get department wise Min Salary from Employee Table order by salary ascending?
+	Select Department, min (Salary) SALARY from employeeGroup by Department Order by minSalary asc (i.e. ascending prder)
+
+•	How to find highest salary from Employee table?
+	Select * from employee Where salary = (Select max(Salary) from employee)
+	
+•	How to find 2nd highest salary from Employee table?
+	Select max(Salary) from employee Where Salary Not In(Select max(Salary) from employee)
+	
+•	Write a query for the 4th highest salary from a table?	
+	SELECT * FROM Employee WHERE sal = ( SELECT MIN(sal) FROM Employee WHERE sal IN ( SELECT DISTINCT TOP N sal FROM Employee ORDER BY sal DESC ) )
+	
+•	How to find highest salary from Employee table department wise?
+	via Inner Join Concept and Group by method
+	SELECT DeptID, MAX(Salary) FROM EmpDetails GROUP BY DeptID
+	
+•	What are DML Commands (Data Manipulation Language)?
+	Select(i.e. to retrieve data from the DB), Insert, Update, Delete
+	
+•	What are DDL Commands (Data Driven Language)?
+	Select(i.e. to retrieve data from the DB), Insert, Update, Delete
+
+•	How to update Customer's address from the Customer's table?
+	Update customer set address = 'Pune' where customer_id=1180303;
+	
+•	What are Joins? Types of Joins?
+	Used to combine rows from 2 or more tables based on related columns between them
+	Types:
+	Inner Join:			Returns records that have matching values in both tables
+	Right Outer Join:	Returns all records from right table and matching records from the left table
+	Left Outer Join:	Returns all records from left table and matching records from right table
+	Full Join:			Returns all records from left and right table
+
+•	Difference between Delete, Drop & Truncate?
+	Delete Command:		Temporarily deletion of data and can be retrieved again once you rollback
+	Drop Command:		To destroy the table completely from the DB				e.g. drop table <table_name>;
+	Truncate Command:	For Permanent deletion of data from the DB				e.g. truncate table <table_name>;
+	
+•	What is CURSOR in PL/SQL? {{%FOUND, %NOTFOUND, %ISOPEN, %ROWCOUNT}}
+	A Cursor is a pointer to this context area. Oracle creates context area for processing an SQL statement which contains all information about the statement.
+	
+Implicit Cursor:	Whenever any DML operations occur in the database, an implicit cursor is created that holds the rows affected, in that particular operation. These cursors cannot be named and, hence they cannot be controlled or referred from another place of the code. We can refer only to the most recent cursor through the cursor attributes.
+
+Explicit Cursor:	Programmers are allowed to create named context area to execute their DML operations to get more control over it. The explicit cursor should be defined in the declaration section of the PL/SQL block, and it is created for the 'SELECT' statement that needs to be used in the code.
+
+
+*****************************************************************API Testing*****************************************************************
+1. APIs: Software intermediary that enables two applications to communicate with each other. Eg. Google Maps API, Amazon Advertising API, Twitter API, YouTube API, etc. Used to determine the return value (response). It allows two applications to communicate with one another to access data. Every action you take on your phone, like sending a direct message or checking the score of the Cricket , uses an API to access and deliver that information.
+
+2. API Testing: Software testing which determines if the developed APIs meet expectations regarding the functionality, reliability, performance, and security of the application.
+
+3. Advantages: Test for Core Functionality, Time efficient, Language independent, Easy Integration with GUI.
+
+4. Rest API: Representational State Transfer is a set of functions to which the developers performs requests and receive responses. In REST API interaction is made via HTTP protocol.
+
+5. Explain API framework: 
+
+6. Principles of API test design:
+Setup : Create objects, start services, initialize data etc
+Execution: Steps to exercise API or scenario, also logging
+Verification: Oracles to evaluate execution outcome
+Reporting: Pass, failed or blocked
+Clean up: Pre-test state
+
+7. Types of bugs in API Testing: Missing or duplicate functionality, Fails to handle error conditions gracefully, Stress, Reliability, Security, Unused flags, Not implemented errors, Inconsistent error handling, Performance, Multi threading issues, Improper errors.
+
+8. Tools used for testing APIs: NUnit for .NET, JUnit for Java, HP UFT, SOAP UI.
+
+9. Common protocols that are testing in API tesing: HTTP, JMS, REST, SOAP, UDDI
+
+10. Most commonly used HTTP methods supported by REST:-
+GET is only used to request data from a specified resource. Get requests can be cached and bookmarked. It remains in the browser history and haS length restrictions. GET requests should never be used when dealing with sensitive data.
+POST is used to send data to a server to create/update a resource. POST requests are never cached and bookmarked and do not remain in the browser history.
+PUT replaces all current representations of the target resource with the request payload.
+DELETE removes the specified resource.
+OPTIONS is used to describe the communication options for the target resource.
+HEAD asks for a response identical to that of a GET request, but without the response body.
+
+11. URI: The purpose of a URI is to locate a resource(s) on the server hosting of the web service.
+
+12. payload in RESTFul Web services: The “payload” is the data you are interested in transporting. This is differentiated from the things that wrap the data for transport like the HTTP/S Request/Response headers, authentication, etc.
+
+13. RAML:	RESTful API Modeling Language (RAML) makes it easy to manage the API lifecycle from design to deployment to sharing.
+			It's concise and reusable; you only have to write what you need to define and you can use it again and again. Uniquely among API specs, it was developed to model an API, not just document it.
+
+14. Status Codes: 200 OK, 201 Created, 202 Accepted, 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found, 405 Method Not Allowed, 409 Conflict, 411 Length Required, 412 Precondition Failed, 415 Unsupported Media Type, 429 Too Many Requests, 500 Internal Server Error, 503 Service Unavailable.
+
+15. What are main differences between API and Web Service?
+	All Web services are APIs but not all APIs are Web services.
+	Web services might not contain all the specifications and cannot perform all the tasks that APIs would perform.
+	A Web service uses only three styles of use: SOAP, REST and XML-RPC for communication whereas API may be exposed to in multiple ways.
+	A Web service always needs a network to operate while APIs don’t need a network for operation.
+
+16. Some architectural styles for creating a Web API:-
+	HTTP for client-server communication
+	XML/JSON as formatting language
+	Simple URI as the address for the services
+	Stateless communication
+	
+17. 5 most important principles of an API test design are:-
+	Setup: Create objects, start services, initialize data, etc
+	Execution: Steps to apply API or the scenario, including logging
+	Verification: Oracles to evaluate the result of the execution
+	Reporting: Pass, failed or blocked
+	Clean up: Pre-test state
+	
+18. Procedure to perform API testing?
+	Choose the suite to add the API test case
+	Choose the test development mode
+	Demand the development of test cases for the required API methods
+	Configure the control parameters of the application and then test conditions
+	Configure method validation
+	Execute the API test
+	Check test reports and filter API test cases
+	Arrange all API test cases
+
+19. API Testing and UI Testing?
+	API enables communication between two separate software systems. A software system implementing an API contains functions or subroutines that can be executed by another software system.
+	On the other hand, UI ( User Interface) testing refers to testing graphical interface such as how users interact with the applications, testing application elements like fonts, images, layouts etc. UI testing basically focuses on look and feel of an application.
+
+20. 
+
+*************************************----------------------.NET--------------------------*******************************************
+•	Define ASP.NET?
+	.NET is mainly used for backend.
+	ASP.NET is mainly used for frontend.
+	For backend, maicrosorf has created C# to use in backend.
+	C# is simple OOP Language like Java
+	VDI is like Eclipse IDE
+	An integrated development environment (IDE) is software for building applications that combines common developer tools into a single graphical user interface (GUI).
+
+	An open source web framework, created by Microsoft, for building modern web apps and services with . NET.
+	ASP.NET is cross platform and runs on Linux, Windows, macOS, and Docker.
+	ASP.NET is used by Alibaba Travels, MASTERCARD, etc.
+	ASP stands for Active Server Pages. ASP is a development framework for building web pages.
+
+•	What languages does the . NET Framework support?
+	C#, VB.NET, C++ and F#, etc and more than 60 languages
+
+•	What are the most important aspects of . NET?
+	Common Language Runtime and Class library are the most important aspects of the . NET Framework.
+	CLR provides building tools and resources that help developers set the foundation for application building
+	
+•	What is the difference between managed and unmanaged code?
+	NET Framework has CLR, Common Language Runtime which execute the code written in . NET languages.
+	CLR manages the memory needs, security concern, code optimization, platform specific conversion etc.
+	In case of Unmanaged code, no CLR is present, and code is directly executed by Operating system.
+	
+•	Describe the garbage collection process?
+	NET's garbage collector manages the allocation and release of memory for your application.
+	Each time you create a new object, the common language runtime allocates memory for the object from the managed heap.
+	Eventually the garbage collector must perform a collection in order to free some memory.
+	
+•	Explain in basic terms how to execute managed code?
+	Managed code is computer program code that requires and will execute only under the management of a Common Language Infrastructure (CLI);
+	Virtual Execution System (VES); virtual machine, e.g. . NET Core, CoreFX, or . NET Framework; Common Language Runtime (CLR); or Mono. The term was coined by Microsoft.
+
+
+*****************************************************************Actual Testing*****************************************************************
+
+1. Software Testing Life Cycle:-
+Requirement Analysis.
+Test Planning.
+Test case development.
+Test Environment setup.
+Test Execution.
+Test Cycle closure.
+
+2. Bug Life Cycle Stages:-
+NEW: When a bug is detected for the first time in the software, its status is designated as new.
+ASSIGN.
+ACTIVE.
+REJECTED.
+DEFERRED.
+DUPLICITY.
+TEST.
+REOPENED.
+
+3. Types of Reports in Jira:-
+Time tracking reports.
+Scrum project reports.
+Kanban project reports.
+Pie Chart Reports.
+Created vs. resolved issue reports.
+Version workload reports.
+Version time tracking reports.
+
+4. Types of Software Testing:-
+a.	Unit Testing:	It focuses on the smallest unit of software design.
+					In this, we test an individual unit or group of interrelated units.
+					It is often done by the programmer by using sample input and observing its corresponding outputs. 
+
+b.	Integration Testing:	Integration testing is testing in which a group of components is combined to produce output.
+						Integration testing is of four types: (i) Top-down (ii) Bottom-up (iii) Sandwich (iv) Big-Bang.
+						
+c.	Black Box testing:	It is used for validation. In this we ignore internal working mechanism and focuse on what is the output?.
+	White Box testing:	It is used for verification. In this we focus on internal mechanism i.e. how the output is achieved?
+	
+d.	Regression Testing:	Sanity & Regression testing are done at the final stage of SDLC, to check the main functionalities of an application.
+	Smoke Testing:		It is executed at the initial stage of SDLC, to check the core functionalities of an application.
+
+e.	Alpha Testing:	A type of validation testing and also a type of acceptance testing which is done before the product is released to customers (Done by QA).
+					When software testing is performed internally within the organization.
+	Beta Testing:	The beta test is conducted at one or more customer sites by the end-user of the software.
+					This version is released for a limited number of users for testing in a real-time environment.
+					When software testing is performed for the limited number of people.
+
+f.	System Testing:	This software is tested such that it works fine for the different operating systems.
+					It is covered under the black box testing technique. In this, we just focus on the required input and output without focusing on internal working. 
+					In this, we have security testing, recovery testing, stress testing, and performance testing.
+					
+5.	Business intelligence:-
+Business intelligence comprises the strategies and technologies used by enterprises for the data analysis of business information. BI technologies provide historical, current, and predictive views of business operations
+
+6.	Transpose of matrix
+7. date validation(include leap year as well)
+
+8.	Ternary operator numerical problem:-
+variable = Expression1 ? Expression2: Expression3
+If operates similarly to that of the if-else statement as in Exression2 is executed if Expression1 is true else Expression3 is executed.
+
+9.	What is Foreign Key in Sql
+	A FOREIGN KEY is a field (or collection of fields) in one table, that refers to the PRIMARY KEY in another table. The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+	
+10.	Expalin normalization
+	Normalization is the process of organizing data in a database. This includes creating tables and establishing relationships between those tables according to rules designed both to protect the data and to make the database more flexible by eliminating redundancy and inconsistent dependency.
+
+11.	Write a program for reverse string
+12.	Primary key and secondary key
+13.	C pointers
+14.	Swapping of variables
+15.	Page Object Model (POM based model) - we work in hybrid framework..
+16.	Step defination file - TestNG, Cucumber, Selenium
+17.	Dropdown in selenium
+18.	Access modifiers like public private protected
+
+
+*****************************************************************Interview Questions:->
+
+1.	Collections: HashMap, HashTree, HashSet, TreeSet
+2.	Diff btw Abstract Class and Interface
+3.	Transpose of a matrix code
+4.	Joins? Types of Joins
+5.	Page Object Model (POM based model) - we work in hybrid framework..
+6.	Step defination file - TestNG, Cucumber, Selenium
+
+
+************************************************************TIAA Interviews:->
+
+RTC Usage - A real-time clock (RTC) is an electronic device (most often in the form of an integrated circuit that measures the passage of time. Although the term often refers to the devices in personal computers, servers and embedded systems, RTCs are present in almost any electronic device which needs to keep accurate time.
+
+ Test Design
+Test Strategy is a high-level document (static document) and usually developed by a project manager. It is a document which captures the approach on how we go about testing the product and achieve the goals. It is normally derived from the Business Requirement Specification (BRS). Documents like Test Plan are prepared by keeping this document as base.
+	Components of the Test Strategy document:-
+Scope and overview, Test Approach, Testing tools, Industry standards to follow, Test deliverables, Testing metrics, Requirement Traceability Matrix, Risk and mitigation, Reporting tool, Test summary
+
+ Test plan document is a document which contains the plan for all the testing activities to be done to deliver a quality product. 
+Test plan document guides us how the testing activity should go on. Success of the testing project completely depends on Test Plan.
+	Components of the Test Plan document:-
+Test Plan Identifier, References, Introduction, Test Items, Features To Be Tested, Features Not To Be Tested, Approach, Pass/Fail Criteria, Suspension Criteria, Test Deliverables, Testing Tasks, Environmental Needs, Responsibilities, Staffing and Training Needs, Schedule, Risks and Contingencies, Approvals
+
+ Test Case Writing - Test Case ID, Test Description, Assumptions and Pre-Conditions, Test Data, Steps to be Executed, Expected Result, Actual Result and Post-Conditions, Pass/Fail
+
+ Test Execution - Test execution is the process of executing the code and comparing the expected and actual results.
+Following factors need to be considered for a test execution process − Based on a risk, select a subset of test suite to be executed for this cycle.
+
+ Defect Management - It is process where most of the organizations manage the Defect Discovery, Defect Removal, and then the Process Improvement. As the name recommends, the Defect Management Process (DMP) manages defects by purely detecting and resolving or fixing the faults.
+
+ Test Automation using Selenium - Selenium is a free (open-source) automated testing framework used to validate web applications across different browsers and platforms. You can use multiple programming languages like Java, C#, Python etc to create Selenium Test Scripts.
+
+ ALM tool is a tool that helps organizations to manage the application lifecycle right from project planning, requirements gathering, until Testing & deployment, which otherwise is a time-consuming task.
+ALM tools essentially function as project management tools that help you bring people and processes together. Look for a tool that includes version control, the ability for teams to communicate in real time, requirements management features, estimation and project planning, source code management, and test management.
+
+ JIRA Usage - JIRA is a project management tool used for issues and bugs tracking system. It is widely used as an issue-tracking tool for all types of testing.
+
+ Device Connect - Yet another tool to connect Android phone with desktop similar to KDE Connect.
+Features:
+* Lightweight and fast
+* AES-256 encryption with password
+* Upload files from phone to desktop
+* Open files and web URLs from phone on desktop
+* Download files from pre-defined directories at desktop to phone
+* Show phone notification on desktop
+* Execute pre-defined commands on desktop
+
+KDE Connect (K Desktop Environment) is an Android and a desktop app that acts as a bridge between your mobile device and your computer. KDE Connect provides a ton of useful features such as pushing Android notifications to your desktop, viewing device battery status on your computer, and cross-device clipboard synchronization.
+	KDE Connect is a multi-platform application developed by KDE, which facilitates wireless communications and data transfer between devices over local networks. KDE connect is available in the repositories of many Linux Distributions and F-droid, Google Play Store for Android.
+
+ Sauce Lab
+Sauce Labs is the only cloud-based continuous testing platform that enables developers to run their automated tests across desktops, emulators, simulators and real devices, using Selenium, Appium, Espresso or XCUITest.
+
+************************************************************FIS Global Interview:->
+1.	Different types of annotations in TestNG:-
+@BeforeMethod:	This will be executed before every @test annotated method.
+@AfterMethod:	This will be executed after every @test annotated method.
+@BeforeClass:	This will be executed before first @Test method execution. It will be executed one only time throughout the test case.
+@AfterClass:	This will be executed after all test methods in the current class have been run
+@BeforeTest:	This will be executed before the first @Test annotated method. It can be executed multiple times before the test case.
+@AfterTest:		A method with this annotation will be executed when all @Test annotated methods complete the execution of those classes inside the <test> tag in the TestNG.xml file.
+@BeforeSuite:	It will run only once, before all tests in the suite are executed.
+@AfterSuite:	A method with this annotation will run once after the execution of all tests in the suite is complete.
+@BeforeGroups:	This method will run before the first test run of that specific group.
+@AfterGroups:	This method will run after all test methods of that group complete their execution.
+
+2.	How do we achieve parallel execution in TestNG:-
+	TestNG provides multiple ways to execute tests in separate threads.
+	In TestNG. xml, if we set 'parallel' attribute on the tag to 'tests', TestNG will run all the '@Test' methods in tag in the same thread, but each tag will be in a separate thread. This helps us to run test methods / classes / tests in parallel
+
+3.	What are the different arguments passed along with @Test annotation in TestNG:-
+	There are mainly two ways through which we can provide parameter values to TestNG tests.
+	The @Parameters annotation can be used for any of the @Before, @After, @Factory, and @Test annotated methods.
+	It can be used to initialize variables and use them in a class, test, or may be for the whole test execution.
+
+4.	How do we include and exclude the group in the TestNG xml file:-
+	Groups are included and excluded from the new group by using the include and exclude tags. Here, TestNG executed only two methods, as mentioned in the included-group group and excluded the test methods that belong to the excluded-group. You can define as many groups of groups as you want.
+
+5.	How do we use the data provider in TestNG with an example:-
+	For example, dpMethod here. If the tester has not specified the name of the dataprovider, then the method name becomes the dataprovider name by default.
+	TestNG dataprovider returns a 2d list of objects. The method then performs a data-driven test for each value that you have specified.
+
+***************************************************************ETL Concepts:->
+1. ETL:-	(Extract, Transform & Load) system takes large number of raw data from multiple sources, convert it for analysis, and load that data into your warehouse.
+			A process in data warehousing of pulling data out of the source system and putting it into data wrehouse.
+			eg. from RDBMS, SQL Server, Flat Files data will got to staging area i.e. Transformation and finally in Data Warehouse i.e. Loading
+
+Data Extraction from various source system:-
+	The main objective of this step is to retrieve all required data from the source system.
+	The extraction step should be designed in such a way that it should not have negative afffect on the source system.
+	
+Data Transformation:-
+	This step includes cleaning, filtering, validating and applying rules to extracted data.
+	The main objective of this step is to load the extracted data into target database with clean and general format.
+	This is because we extract data from various sources and each have their own format.
+	eg. some are have dd/mm/yyyy and some are having mm/dd/yyyy so data transformation will bring it to general format.
+Cleaning:	male = M && female = F
+Filtering:	selecting only certain column to load
+Enrichment:	improve quality i.e. full name = first name, middle name, last name
+Splitting:	splitting one column into multiple column
+Joining:	joining data together from multiple source
+	Rich data:	Here, some cases are available where data do not needs transformation
+	
+Loading:-
+	Data extracted and transformed is of no use until it is loaded in target database.
+	In this step, the extracted data and transformed data is loaded to target database.
+	In order to load data effeciently, it is necessory to index the database.
+	
+ETL Process can be runn parallel:-
+	As we know that the data extraction takes time so the second step of transformation can be run simultaneously.
+	This prepare data for third step of loading.
+	As soon as some data is reedy, it is loaded without completion of its previous steps.
+***************************************************************IMP Testing Overview***********************************************************************************
+***************************************************************UNIX Concepts Overview*********************************************************************************
+***************************************************************ETL & DwH Concepts*************************************************************************************
+***************************************************************Abinitio Overview**************************************************************************************
+***************************************************************SQL Concepts*******************************************************************************************
+***************************************************************Mobile Testing BMB Overview****************************************************************************
+***************************************************************ETL Concepts*******************************************************************************************
+***************************************************************ETL Concepts*******************************************************************************************
+***************************************************************ETL Concepts*******************************************************************************************
+
+************************************************************Salesforce:->
+Salesforce is a cloud computing service as a software company that specializes in Customer Relationship Management(CRM).
+
+
+***************************************************************Globant Pune Interview Question:->
+1.	Synchronisation in selenium:-
+when two or more components involved to perform any action, we expect these components to work together with the same pace. The co-ordination between these components to run paralelly is called Synchronization. Synchronization (Wait) in Selenium has a great significant value.
+
+Unconditional Synchronization:	Indicates timeout value alone and makes tool to continue further only when specified time is elapsed. For eg.. System.Threading.Thread.Sleep();
+Conditional Synchronization:	We can specify timeout duration along with some desired conditions to check and then throw an error if nothing happens. For eg.. Implicit/Explicit waits
+
+
+2.	Waits:-
+	Implicit wait:	Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time before throwing an exception.
+					Once this time is set, WebDriver will wait for the element before the exception occurs.
+					Once the command is in place, Implicit Wait stays in place for the entire duration for which the browser is open.
+					driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+					
+	Explicit wait:	By using Explicit Wait command, the WebDriver is directed to wait until a certain condition occurs before proceeding with executing the code.
+					This causes an unnecessary delay in executing the test script.
+					Explicit wait is more intelligent, but can only be applied for specified element s.
+					WebDriverWait w = new WebDriverWait(driver,);
+					w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("<<xpath expression>>")));
+					
+	Fluent wait:	The Fluent Wait command defines the maximum amount of time for Selenium WebDriver to wait for a certain condition to appear.
+					To put it simply, Fluent Wait looks for a web element repeatedly at regular intervals until timeout happens or until the object is found.
+					Wait<WebDriver> w = new
+					FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+					
+	Static wait:	Used to pause the execution for a specified amount of time.	For eg.. Thread.Sleep(1000)
+
+3.	Alerts:-
+Alerts are basically an interface between the current web page and UI. It can also be defined as a small message box which displays an on-screen notification to give the user some kind of information or ask for permission to perform a certain kind of operation. It may be also used for warning purpose.
+
+4.	Actions class:-
+Used to handle Keyboard and mouse events. Handeling includes operations such as Drag-&-Drop, Clicking on multiple elements with a control Key, etc.
+
+5.	Multiple windows and frame handling:-
+It is a unique identifier that holds the address of all the windows. Think of it as a pointer to a window, which returns the string value. It is assumed that each browser will have a unique window handle. This window handle function helps to retrieve the handles of all windows.
+String Mainwindow = driver.getWindowHandle()
+
+6.	About Framework:-
+•	Framework:	A framework, or software framework, is a platform for developing software applications.
+				It provides a foundation on which software developers can build programs for a specific platform.
+				A framework may also include code libraries, a compiler, and other programs used in the software development process.
+	
+•	Selenium framework:				A code structure for making code maintenance simpler, and code readability better.
+									A framework involves breaking the entire code into smaller pieces of code, which test a particular functionality.
+									It is made up of Test-Base Class, Page Object Model, Functions Library, Property Files, Test NG
+	Data-Driven Test Framework:		All of our test data is generated from some external files like Excel, CSV, XML or some database table.
+	Keyword Driven Test Framework:	The basic working of the Keyword Driven Framework is to divide the Test Case into four different parts.
+									First is called as Test Step, second is Object of Test Step, third is Action on Test Object and fourth is Data for Test Object.
+	Hybrid Test Framework:			Hybrid Test framework is a concept where we are using the advantage of both Keyword and Data-driven framework.
+
+7.	How to reexecute failed testcase:-
+Create testng. xml file under project folder.
+Right click on the testng. xml >> Run As >> TestNG suite.
+In the test-output folder >> testng-failed. xml file will be created.
+Right click on testng-failed.
+In this way we can execute fail testcases in TestNG class.
+
+After the first run of an automated test run. Right click on Project – Click on Refresh.
+A folder will be generated named “test-output” folder. Inside “test-output” folder, you could find “testng-failed. xml”
+Run “testng-failed. xml” to execute the failed test cases again.	
+
+8.	What if maximum timeout set to 30sec and element found in 10sec in implicit wait:-
+	It will wait for complete 30 seconds.
+
+9.	Type of exception in selenium:-
+Checked (Compiletime) and Unchecked (Runtime) Exceptions.
+
+10.	Jsexecuter:-
+JavaScriptExecutor is an Interface that helps to execute JavaScript through Selenium Webdriver. JavaScriptExecutor provides two methods "executescript" & "executeAsyncScript" to run javascript on the selected window or current page.
+
+11.	Exception for findelement and findelements:-
+The findElement method throws a NoSuchElementException exception when the element is not available on the page.
+The findElements method returns an empty list when the element is not available or doesn't exist on the page. It doesn't throw NoSuchElementException
+
+12.	Testing-
+Priority to set
+Cn we give negative priority
+What if don't give priority
+
+13.	Dataprovider:-
+DataProviders are a framework for easily controlling how data can be provided from a source (generally, a dataset's file contents). They are meant to be: Be fast and efficient by allowing narrow queries that provide only specified amounts of data from specified locations.
+
+14.	Invocation count:-
+Invocation count is used when you want to run the same tests multiple times.
+
+15.	Annotations of TestNG:-
+TestNG Annotation is a piece of code which is inserted inside a program or business logic used to control the flow of execution of test methods.
+
+
+16.	How to reduce execution time of testcases:-
+Introduce Continuous Integration (CI) Tools:
+Use CI Tools not Only to Run Scripts, but also to Automate All Manual Steps!
+Introduce Dynamic Timeouts.
+Unlock the Power of Parallel Execution and Virtualization.
+Build a Fully Integrated Automation Framework.
+
+
+String concepts:-
+Exception type:-
+Final, Finally, Finalize:-
+1)	Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final method can't be overridden and final variable value can't be changed.
+	Finally is used to place important code, it will be executed whether exception is handled or not.	
+Finalize is used to perform clean up processing just before object is garbage collected.
+2)	Final is a keyword.	Finally is a block.	Finalize is a method.
+
+	Can we overload and override constructor:-
+Constructor Overriding is never possible in Java. This is because, Constructor looks like a method but name should be as class name and no return value.
+Overriding means what we have declared in Super class, that exactly we have to declare in Sub class it is called Overriding.
+
+
+	What is static & Final:-
+Static is keyword is used to define the class member that can be used independently of any object of that class.
+Final keyword is used to declare, a constant variable, a method which can not be overridden and a class that can not be inherited.
+	
+	How to set value of static variable/method:-
+static String college = "ITS";
+static void change(){)
+
+	Can we overload private methods:-
+private and final methods can be overloaded but they cannot be overridden. It means a class can have more than one private/final methods of same name but a child class cannot override the private/final methods of their base class.	
+	
+	
+	String program to read character count using hash map:-
+HashMap<Character, Integer> charCount = new HashMap<Character, Integer>();
+char[] strArray = inputString.toCharArray();
+for (char c : strArray) {
+	if (charCount.containsKey(c)) {
+		charCount.put(c, charCount.get(c) + 1);
+      }
+      else {
+	charCount.put(c, 1);
+      }
+    }
+	for (Map.Entry entry : charCount.entrySet()) {
+      System.out.println(entry.getKey() + " " + entry.getValue());
+    }
+  }
+		public static void main(String[] args)
+  {
+    String str = "Ajit";
+    characterCount(str);
+  }
+}
+
+waits?
+background keyword in cucumber,
+how to open firefox in selenium
+datatable in selenium
+how to switch from one frame to another?
+how to handle frameS?
+how to click all buttons in selenium?
+Explicit wait condition?
+how-to-display-employee-names-starting-with-a-and-then-b-in-sql
+pom.xml contains?
+What is maven used for?
+What are microservices?
+Check whether two strings are anagram of each other?
+write a method which accepts two string as an input and returns true if both are anagrams?
+test pyramid?
+aggregate functions of sql?
+what is payload? payload in put method?
+How to find the auto suggestion on google search with Xpath?
+
+A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
+
+Maven can add all the dependencies required for the project automatically by reading pom file.
+One can easily build their project to jar,war etc.
+Maven makes easy to start project in different environments and one doesn't needs to handle the dependencies injection, builds, processing, etc.
+
+Microservices is a distributed system where we devide big component into small small pieces.
+We can hide servies from external world via API Gateway so that we can give dummy URL for calling any services and he may not get the original stuffs.
+Due to this we can prevent vulnarability, fraud, etc..
+
+A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+Using docker build users can create an automated build that executes several command-line instructions in succession.
+
+*****************************************************************Web services Interview question:->
+What is Web services
+What is the difference between SOAP and REST
+What is REST API
+What is difference between Web services testing and API Testing
+Difference between XML and HTML
+What is Assertion
+Types of Assertions
+Difference between Xpath and XQuery
+Types of Properties and their syntaxes
+What is Data Driven Testing
+What is Data Source Test step
+Explain about JDBC process
+How to Connect JDBC to SOAP UI
+What is Connection String in JDBC
+Difference between SOAP UI FREE v/s SOAP UI PRO
+What is Data Sink and Data gen test steps in soapui pro
+How to Transfer value using Property Transfer
+What is Mock services
+How to do Service mocking
+What is the process of SOAP UI Testing
+What is WSDL
+What are the parameters are in WSDL
+Explore the WSDL
+Is WSDL is necessary for SOAP UI
+Difference between HTTP and HTTPS
+Why HTTP is important in webservices
+What is Endpoint?
+What is HTTP method and HTTP Status codes
+Explain different types of HTTP methods and Usages
+Explain about different Status codes
+Types of HTTP Status codes
+What is Request Header ? and its format?
+What is Response Header ? and Its format?
+What are tool are available for SOAP testing
+Do u have experience in Load Testing
+How to test Load Testing
+What is TPS, Response Time and Breakeven point
+Absolute vs Relative Xpath?
+What is Name Space and its usage
+How to write Xpath for access attributes ?
+SOAP UI Architecture
+How to generate Reports in Free Version
+
+*****************************************************************Why and How Automation:->
+1. Before starting Automation, ask yourself what is your goal? Is it to reduce regression cycle or to reduce technical debt (In sprint Automation) or to enable continuous testing.
+2. Once your goal is decided, check who should participate and to what extent?(Product owners, Dev, QA)
+3. Communicate your goal to every team member. Everyone should be aware what we are going to accomplish.
+4. Decide your execution strategy. When and how these cases will be executed?
+- Anytime you want? (Locally)
+- Multiple times a day?(Separate build)
+- When new code checked in?(Developer build)
+5. Choose your tool very wisely. Don't go by vague idea to pick only open source tool, maintenance and triaging will be huge task if you don't have coding knowledge.
+6. Choose at what level you want to automate. Unit, Services or UI.
+7. Future proof your test automation. Since starting only design your framework in such a way that later you can run on Multiple environments, diff browsers and parallel execution.
+8. Test automation is itself a development project so maintain highest coding standards, choose clean coding style, choose appropriate design pattern.
+
+*****************************************************************Artech Info(Bangalore) Interview questions:->
+1.	What is navigation commands supported in selenium
+	Used to perform different operations such as backward, forward, refresh, wait, etc in the browser's history. These commands can be accessed by creating a driver object using the reference variable of WebDriver just like browser methods.
+	
+2. Margin policy in selenium
+3. difference between assert n verify
+4. different frameworks with selenium
+5. why selenium
+6. what is driver.close() and driver.quit() and difference
+7. absolute xpath n relative xpath
+8. exceptions in selenium
+9. locators in selenium
+
+*****************************************************************Infosys interview questions:-> 
+Difference between verify and asset
+Wait and it's types
+Annotation in testng
+Locators in selenium
+How do you handle Frames
+Mouse action
+Oops concept
+Difference between / and //
+Double click using web driver
+Static variable and static block
+Alerts in selenium
+What is scenario n scenario outline
+
+How to run Failed Test cases?
+2.	How to open Edge browser in Cookie disabled mode?
+3.	How to take screenshot of full web page?
+4.	How did you implement Extent Report in your project?
+5.	Usage of Log4J? What are the different levels of information?
+6.	How can we see Test results on Jenkins server itself?
+7.	Can you handle Captcha using Selenium WebDriver?
+8.	Maven commands?
+9.	Parallel execution in Framework; 
+a.	Run the script in Edge, Firefox and Chrome parallel.
+10.	Run the suite and suite must execute in 3 instances of Edge browser
+11.	What are the Advantages and Disadvantages of Selenium tool for Automation Testing?
+12.	Access Specifier vs Access Modifier?
+13.	Folder vs Package?
+14.	What is Test case, Test Plan, Test Strategy, Test Script, Test Scenario?
+15.	Test Basis, Test Work product, Test activities?
+16.	What are different types of testing?
+17.	Smoke vs Sanity?
+18.	Unit vs Component vs Integration vs System Testing? Which needs to be done first?
+19.	Difference between Verification and Validation.
+20.	What is Bug, Defect, Failure, Error, Warning?
+21.	Priority vs Severity? What is more important related to Business?
+22.	How can you create Java DOC?
+23.	Positive vs Negative Scenario?
+24.	Database Testing
+
+*****************************************************************Capgemini:->
+What is interface?
+What is abstract class?
+What is difference between finally and finalize?
+What is overloading and overriding?
+What is selenium and why it is used?
+What is local variable?
+What is final keyword?
+If I have used system.exit before finally block then it will execute finally block or not?
+What is try and catch block?
+What is polymorphism?
+Program- logic behind "a number is divisible by 3 and 5?"
+
+*****************************************************************18/09/2021:->
+
+what all things we cannot test in automation?
+create xpath to highlight 3rd column values?
+condition for explicit wait?
+RemoveAdjuscentDuplicates for //String str=“aaabbbccaaa ppjiqq" and Output should be = abca pjiq?
+Non repeating characters should be printed?
+
+difference between before hooks and background in cucumber with example?
+
+how can i write xpath for having 2 ids?
+//div[@id='..' or @class='...]
+
+Dynamic xpath?
+.//*[@class='product']//h4[contains(text(),'Text')]//ancestor::div[@class='table-good']
+.//*[@class='product']//h4[contains(.,'Text')]//ancestor::div[@class='table-good']
+
+Smoke Testing:- Smoke Testing is a software testing technique performed post software build to verify that the critical functionalities of software are working fine. It is executed before any detailed functional or regression tests are executed. The main purpose of smoke testing is to reject a software application with defects so that QA team does not waste time testing broken software application.
+Sanity Testing:- Sanity testing is a kind of Software Testing performed after receiving a software build, with minor changes in code, or functionality, to ascertain that the bugs have been fixed and no further issues are introduced due to these changes. The goal is to determine that the proposed functionality works roughly as expected. If sanity test fails, the build is rejected to save the time and costs involved in a more rigorous testing.
+
+
+
+
+*****************************************************************Volkswagen:->
+
+How to retrieve all elements text value present in the screen using selenium?
+List<String> allLinks = driver.findElements(By.tagName("span"));
+System.out.println("Links count is: "+allLinks.size());
+for(WebElement link : allLinks)
+System.out.println(link.getText());
+
+or
+List<WebElement> elementsRoot = driver.findElements(By.xpath("//div[@class=\"facetContainerDiv\"]/div));
+
+for(int i = 0; i < elementsRoot.size(); ++i) {
+     WebElement checkbox = elementsRoot.get(i).findElement(By.xpath("./label/input"));
+     checkbox.click();
+     blah blah blah
+}
+
+How to print even and odd position characters of an array of strings in Java?
+public class OddPosition {  
+    public static void main(String[] args) {  
+          
+        //Initialize array   
+        int [] arr = new int [] {1, 2, 3, 4, 5};   
+          
+        System.out.println("Elements of given array present on odd position: ");  
+        //Loop through the array by incrementing value of i by 2   
+        for (int i = 0; i < arr.length; i = i+2) {   
+            System.out.println(arr[i]);   
+        }    
+    }  
+}  
+
+TDD & BDD
+In TDD, I’m not concerned about the output. The only thing needed is to carry out the test in a particular way.”
+In BDD, I don’t mind how you come up with the output, except the output has to be correct under the given condition.
+BDD (Behavioral Driven Development) is a software development approach that was developed from Test Driven Development (TDD). All test cases are written in the form of simple English statements inside a feature file, which is human-generated. Acceptance test case statements are entirely focused on user actions.
+
+
+Blackbox testing and whitebox testing
+In Black Box, testing is done without the knowledge of the internal structure of program or application whereas in White Box, testing is done with knowledge of the internal structure of program.
+When we compare Blackbox and Whitebox testing, Black Box test doesn’t require programming knowledge whereas the White Box test requires programming knowledge.
+Black Box testing has the main goal to test the behavior of the software whereas White Box testing has the main goal to test the internal operation of the system.
+Comparing White box testing and Black box testing, Black Box testing is focused on external or end-user perspective whereas White Box testing is focused on code structure, conditions, paths and branches.
+
+Boundary value analysis & equivalence partitioning
+Boundary value analysis	is a technique where we identify the errors at the boundaries of input data to discover those errors in the input center.
+	Equivalence partitioning is a technique where the input data is divided into partitions of valid and invalid values.
+Boundary values are those that contain the upper and lower limit of a variable.
+	In equivalence partitioning, the inputs to the software or the application are separated into groups expected to show similar behavior.
+The Boundary Value Analysis is often called a part of the Stress and Negative Testing.
+	The Equivalence partitioning can be suitable for all the software testing levels such as unit, integration, system.
+Sometimes the boundary value analysis is also known as Range Checking.	
+	Equivalence partitioning is also known as Equivalence class partitioning.
+
+
+
+*****************************************************************L&T:->
+
+1.	Types of authentication:-
+	Single-Factor/Primary Authentication.
+	Two-Factor Authentication (2FA)
+	Single Sign-On (SSO)
+	Multi-Factor Authentication (MFA)
+	Password Authentication Protocol (PAP)
+	Challenge Handshake Authentication Protocol (CHAP)
+	Extensible Authentication Protocol (EAP)
+
+2.	Get and post difference
+	GET is used for viewing something, without changing it, while POST is used for changing something.
+	For example, a search page should use GET to get data while a form that changes your password should use POST.
+	Essentially GET is used to retrieve remote data, and POST is used to insert/update remote data.
+
+3.	post and put difference
+	PUT is meant as a a method for "uploading" stuff to a particular URI, or overwriting what is already in that URI.
+	POST, on the other hand, is a way of submitting data RELATED to a given URI.
+	As far as i know, PUT is mostly used for update the records. PUT - To update the created document or any other resource
+	
+4.	Post and Patch difference
+	When building RESTful Web-Services the HTTP method POST is typically used for resource creation while PUT is used for resource updates.
+	PATCH is an alternative for resource updates as it allows partial updates. In general we can say: POST requests create child resources at a server defined URI.
+
+5.	http methods
+	POST, GET, PUT, PATCH, and DELETE, OPTIONS, HEAD, TRACE, CONNECT
+
+6.	query and path parameters
+	URI parameter (Path Param) is basically used to identify a specific resource or resources whereas Query Parameter is used to sort/filter those resources.
+
+rest assured
+Rest assured is java library for testing Restful Web services. It can be used to test XML & JSON based web services.
+It supports GET, POST, PUT, PATCH, DELETE, OPTIONS and HEAD requests and can be used to validate and verify the response of these requests.
+Then create your test script, verify & run it.
+(OR)
+REST-assured was designed to simplify the testing and validation of REST APIs and is highly influenced by testing techniques used in dynamic languages such as Ruby and Groovy.
+The library has solid support for HTTP, starting of course with the verbs and standard HTTP operations, but also going well beyond these basics.
+
+page factory in selenium
+Page Factory is a class provided by Selenium WebDriver to support Page Object Design patterns. In Page Factory, testers use @FindBy annotation.
+The initElements method is used to initialize web elements. @FindBy: An annotation used in Page Factory to locate and declare web elements using different locators.
+
+listeners in selenium
+Listener is defined as interface that modifies the default TestNG's behavior.
+As the name suggests Listeners "listen" to the event defined in the selenium script and behave accordingly.
+It is used in selenium by implementing Listeners Interface. It allows customizing TestNG reports or logs.
+
+stale element exception
+The stale element reference error is a WebDriver error that occurs because the referenced web element is no longer attached to the DOM.
+Every DOM element is represented in WebDriver by a unique identifying reference, known as a web element.
+
+DOM:	When a web page is loaded, the browser creates a Document Object Model of the page. DOM is a W3C (World Wide Web Consortium) standard.
+The W3C (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document.
+
+How to input text in the text box without calling the sendKeys()?
+We can input text in the text box without the method sendKeys with the help of the JavaScript Executor.
+Selenium executes JavaScript commands with the help of the executeScript method. The JavaScript command to be run is passed as parameter to the method.
+
+*****************************************************************Atos:->
+
+1.	Serialization in java
+	Serialization in Java allows us to convert an Object to stream that we can send over the network or save it as file or store in DB for later usage. Deserialization is the process of converting Object stream to actual Java Object to be used in our program
+	
+2.	synchronization in java
+	A synchronized block in Java is synchronized on some object.
+	All synchronized blocks synchronized on the same object can only have one thread executing inside them at a time.
+	Only one thread can own a monitor at a given time. When a thread acquires a lock, it is said to have entered the monitor.
+	
+3.	read and write file in java
+	Java FileWriter and FileReader classes are used to write and read data from text files (they are Character Stream classes). It is recommended not to use the FileInputStream and FileOutputStream classes if you have to read and write any textual information as these are Byte stream classes.
+	
+4.	single if statement
+	Yes, it is valid. The else is an optional part. During the program execution, the statements written inside the if block will only be executed when the condition mentioned is true. Otherwise, if the condition is false, the next consecutive lines after the if block will be executed.
+
+5.	Overload and Override
+
+6.	ternary operator java
+	The Java ternary operator lets you write an if statement on one line of code. A ternary operator can either evaluate to true or false. It returns a specified value depending on whether the statement evaluates to true or false. We use Java if…else statements to control the flow of a program.
+
+7.	order of constructor calling in inheritance
+	Order of execution of constructors in inheritance relationship is from base /parent class to derived / child class.
+	We know that when we create an object of a class then the constructors get called automatically.
+	
+8.	why strings are called immutable in java
+	The String is immutable in Java because of the security, synchronization and concurrency, caching, and class loading.
+	The reason of making string final is to destroy the immutability and to not allow others to extend it.
+	The String objects are cached in the String pool, and it makes the String immutable.
+
+9.	create list of 10 items and iterate in java
+	Need to understand
+	
+10.	add number in a list java
+	Need to understand
+	
+11.	create instance of chrome driver
+	Need to understand
+	
+12.	Count occurrences of Character in String in Java
+	Need to understand
+	
+13.	stale element exception
+	The stale element reference error is a WebDriver error that occurs because the referenced web element is no longer attached to the DOM.
+	The web element reference is a UUID used to execute commands targeting specific elements, such as getting an element's tag name and retrieving a property off an element.
+
+14.	How to take screenshots in Java
+	Need to understand
+	
+15.	How to Generate Extent Reports in Selenium
+	Need to understand
+	
+16.	Program to find number of occurrence of ‘i’ char in string “Interviews-India”?
+	Need to understand
+	
+17.	Airthmatic Exception
+public class MultipleCatch { 
+public static void main(String args[]) { 
+try { 
+int n = 1000, x = 0; 
+int arr[] = new int[n]; 
+for (int i = 0; i <= n; i++) { 
+arr[i] = i / x; 
+} 
+} catch (ArrayIndexOutOfBoundsException exception) { System.out.println("1st block = ArrayIndexOutOfBoundsException"); 
+} catch (ArithmeticException exception) { System.out.println("2nd block = ArithmeticException"); 
+} catch (Exception exception) { System.out.println("3rd block = Exception"); 
+} 
+} 
+}
+
+
+*********Manual Testing**************************************************************
+
+
+What is the difference between Whitebox and Blackbox testing?
+Black Box Testing is a software testing method in which the internal structure/ design/ implementation of the item being tested is not known to the tester. White Box Testing is a software testing method in which the internal structure/ design/ implementation of the item being tested is known to the tester.
+
+What is Agile Methodology? What is Scrum, Sprint? Have you used it?
+Agile scrum methodology is a project management system that relies on incremental development. Each iteration consists of two- to four-week sprints, where each sprint's goal is to build the most important features first and come out with a potentially deliverable product.
+
+Who will be involved in an Agile testing meeting?
+Pairing − Two Team Members sit together and work collaboratively. The two people can be two Testers or one Tester and one Developer.
+Incremental Test Design − Test Cases are developed as the Sprints progress incrementally and User Stories are added up.
+
+What is DSR, WSR? (status reports)
+DSR stands for Daily status reports whereas WSR stands for Weekly status reports. The content of the report depends upon whom you are sending your reports.
+
+Have you done a monthly Test plan?
+Analyze the Product. The first step towards creating a test plan is to analyze the product, its features and functionalities to gain a deeper understanding. ...
+Develop Test Strategy. ...
+Define Scope. ...
+Develop a Schedule. ...
+Define Roles and Responsibilities. ...
+Anticipate Risks.
+
+Do you know Web testing?
+Web testing is a software testing practice to test websites or web applications for potential bugs. It's a complete testing of web-based applications before making live. A web-based system needs to be checked completely from end-to-end before it goes live for end users.
+Web Testing checks for functionality, usability, security, compatibility, performance of the web application or website
+Eg. Gmail, Yahoo, Confluence page, etc..
+
+Write a program to print to select all columns from the Employees table and Departments table where the Department name is “Testing.”
+select * from Employees FULL JOIN Departments on Employees.matching_value1=Departments.matching_value2 where department_name='Testing';
+
+Write a query to remove the duplicate record from a table.
+Find duplicate rows using GROUP BY clause or ROW_NUMBER() function.
+Use DELETE statement to remove the duplicate rows.
+DELETE from table_name where id NOT IN (SELECT MAX(ID) from table_name GROUP BY value)
+
+
+
+What is Redbus application?
+redBus is the world's largest online bus ticket booking platform, connecting various cities across the globe with just a click of a button. The official iOS app from redBus lets you search and book from more than 67,000 routes worldwide and choose from over 1,800 bus operators.
+
+Write out some positive and negative scenarios to test the “Add Friend” feature on Facebook?
+-User should be able to view add friend for given person
+-User should be able to send the friend request from the user profile
+-User should be able to send friend request from friend suggestion list by direct clicking on add as friend button/link
+-User should be able to see cancel friend request option
+-User should be able to check if you are able to see all stuffs of the another user profile after adding to friend list
+-User should be able to check also other related feature after adding to the user to friend list, like if you are able to like picture, put the comments and share
+-User should be able to check if the both user are able to chat each other
+
+Imagine you are given a Bank Account Login Page. (userid, password, account no, Submit button). List out two positive scenarios to test it?
+-User should be able to see (userid, password, account no, Submit button)
+-User should be able to login to account by entering correct details for (userid, password, account no, Submit button)
+
+What is Top-Down approach & Bottom-Up approach?
+The top-down approach goes from the general to the specific, and the bottom-up approach begins at the specific and moves to the general.
+
+What is difference between verification and validation with example?
+Verification is static testing. Verification means Are we building the product right?!
+Validation is the dynamic testing. Validation is the process of checking whether the software product is up to the mark or in other words product has high level requirements.
+
+What’s your take if the defect is rejected?
+	Check the configuration of your application
+	Check the configuration of browsers on which you are testing
+	Screen layout defects can be rejected due to different screen resolutions on tester and developer machines
+	Often just cleaning the cache of browsers of developer machine sometimes reproduced the defect
+	Some times developers do not check it carefully(there may some negligence on their part). In this case tester & developer try to reproduce the defect on their machines
+
+
+What is meant by test design? What is the test design you have used to write test cases?
+Test design is a process that describes “how” testing should be done. It includes processes for the identifying test cases by enumerating steps of the defined test conditions.
+The objectives consist of test objectives, strategic objectives and stakeholder definition of success.
+
+	Boundary Value Analysis (BVA)
+	This technique is applied to explore errors at the boundary of the input domain. BVA catches any input errors that might interrupt with the proper functioning of the program.
+
+	Equivalence Partitioning (EP)
+	In Equivalence Partitioning, the test input data is partitioned into a number of classes having an equivalent number of data. The test cases are then designed for each class or partition. This helps to reduce the number of test cases.
+
+	Decision Table Testing
+	In this technique, test cases are designed on the basis of the decision tables that are formulated using different combinations of inputs and their corresponding outputs based on various conditions and scenarios adhering to different business rules. (eg.. ETL testing)
+	
+	State Transition Diagrams
+	In this technique, the software under test is perceived as a system having a finite number of states of different types. The transition from one state to another is guided by a set of rules. The rules define the response to different inputs. This technique can be implemented on the systems which have certain workflows within them. (eg.. ETL testing)
+
+	Use Case Testing
+	A use case is a description of a particular use of the software by a user. In this technique, the test cases are designed to execute different business scenarios and end-user functionalities.  Use case testing helps to identify test cases that cover the entire system.
+		Consider the first step of an end to end scenario for a login functionality for our web application where the Actor enters email and password.
+		In the next step, the system will validate the password
+		Next, if the password is correct, the access will be granted
+		There can be an extension of this use case. In case password is not valid system will display a message and ask for re-try four times
+		If Password, not valid four times system will ban the IP address.
+
+
+Software Testing Life Cycle:-
+Requirement Analysis -> Test Planning -> Test case development -> Test Environment setup -> Test Execution -> Test Cycle closure.
+
+Bug Life Cycle Stages:-
+NEW: When a bug is detected for the first time in the software, its status is designated as new.
+ASSIGN -> ACTIVE -> REJECTED -> DEFERRED -> DUPLICITY -> TEST -> REOPENED.
+
+Types of Reports in Jira:-
+Time tracking reports, Scrum project reports, Kanban project reports, Pie Chart Reports, Created vs. resolved issue reports, Version workload reports, Version time tracking reports.
+
+
+
+*****************************************Java Programs******************************************************
+
+*****************************************************************Selenium Programs*****************************************************************
+
+1. How to select value from the dropdown?
+
+public class MyDropdown {
+	public void testDropdown() throws InterruptedException {
+		
+	System.setProperty("webdriver.gecko.driver", "C://location")
+	WebDriver driver = new FirefoxDriver();
+	driver.get("http://www.facebook.com");
+	driver.manage().window().maximize();
+	
+	WebElement element = driver.findelements(by.xpath("//*[@id="login_form"]/div[1]"));
+	Select sel = new Select(element);
+	sel.selectByValue("search-alias=amazon-devices");
+
+	WebW=Element firstEle = sel.getFirstSelectedOption();
+	System.out.println(firstEle.getText());
+	
+	//get all values from the options
+	List<WebElement> listOptions = sel.getOptions();
+	for (WebElement webElement : listOptions) {
+		System.out.println("All options are:- "+webElement.getText());
+		
+		
+2.	How to type in textbox using Selenium WebDriver with Java?
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
+public class InputTxt{
+   public static void main(String[] args) {
+      System.setProperty("webdriver.chrome.driver",
+      "C:\\Users\\ghs6kor\\Desktop\\Java\\chromedriver.exe");
+      WebDriver driver = new ChromeDriver();
+      String url = "https://www.tutorialspoint.com/index.htm";
+      driver.get(url);
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+      // identify element and input text inside it
+      WebElement l =driver.findElement(By.className("gsc-input"));
+      l.sendKeys("Selenium");
+      driver.quit();
+  
+
+3.	
+
+import org.openqa.selenium.By;		
+import org.openqa.selenium.WebDriver;		
+import org.openqa.selenium.chrome.ChromeDriver;		
+import org.openqa.selenium.*;		
+
+public class Form {				
+    public static void main(String[] args) {									
+    		
+    	// declaration and instantiation of objects/variables		
+        System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");					
+        WebDriver driver = new ChromeDriver();					
+        		
+        String baseUrl = "http://demo.guru99.com/test/login.html";					
+        driver.get(baseUrl);					
+
+        // Get the WebElement corresponding to the Email Address(TextField)		
+        WebElement email = driver.findElement(By.id("email"));							
+
+        // Get the WebElement corresponding to the Password Field		
+        WebElement password = driver.findElement(By.name("passwd"));							
+
+        email.sendKeys("abcd@gmail.com");					
+        password.sendKeys("abcdefghlkjl");					
+        System.out.println("Text Field Set");					
+         
+        // Deleting values in the text box		
+        email.clear();			
+        password.clear();			
+        System.out.println("Text Field Cleared");					
+
+        // Find the submit button		
+        WebElement login = driver.findElement(By.id("SubmitLogin"));							
+                    		
+        // Using click method to submit form		
+        email.sendKeys("abcd@gmail.com");					
+        password.sendKeys("abcdefghlkjl");					
+        login.click();			
+        System.out.println("Login Done with Click");					
+        		
+        //using submit method to submit the form. Submit used on password field		
+        driver.get(baseUrl);					
+        driver.findElement(By.id("email")).sendKeys("abcd@gmail.com");							
+        driver.findElement(By.name("passwd")).sendKeys("abcdefghlkjl");							
+        driver.findElement(By.id("SubmitLogin")).submit();					
+        System.out.println("Login Done with Submit");					
+         
+		//driver.close();		
+        		
+    }		
+}
+
+
+*****************************************************************Java Programs*****************************************************************
+
+
+0.	How to handle dynamic changing ID's In XPath?
+
+With contains():
+//div[contains(@id,'post-body')]/div[1]/form[1]/input[1]
+With starts-with():
+//div[starts-with(@id,'post-body')]/div[1]/form[1]/input[1]
+
+a higher level selector such as the form name, e.g. //form/input[@type='submit']
+a combo of non-unique selectors that together are unique e.g. //form[@class='new_user']/input[@type='submit']
+a data attribute such as form[@data-form='new-user']//input
+a partial match using starts-with or contains against post-body- e.g.
+//div[starts-with(@id,'post-body-')]/div[1]/form[1]/input[1]
+
+If the id is changing dynamically for a particular xpath then we can use the below xpath functions:
+contains :xpath Syntax: //html tag[contains(text()/@attribute, 'Expected Value')]
+Following-Siblings:
+Xpath Syntax : //html tag/following-siblings::html tag
+ex: //img[@src = 'image2.jpg']/following-siblings::input[@type = 'button']
+
+
+1. Count vowels in that string in selenium:
+
+int vCount = 0, cCount = 0;
+String str = "This is a really simple sentence";
+str = str.toLowerCase();
+for(int i = 0; i < str.length(); i++) {
+if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') {
+vCount++;
+}
+else if(str.charAt(i) >= 'a' && str.charAt(i)<='z') {
+cCount++; 
+      } 
+    } 
+System.out.println("Number of vowels: " + vCount); 
+System.out.println("Number of consonants: " + cCount); 
+  } 
+} 
+
+2. How to remove all white spaces from a String in Java?
+
+class BlankSpace { 
+public static void main(String[] args) 
+{ 
+String str = "   Naman   Nigam    ";
+    str = str.replaceAll("\\s", ""); 
+    System.out.println(str); 
+  } 
+}
+
+3. Sorting of algorythms:
+
+public static void bubbleSort(int[] a) {
+boolean sorted = false;
+int temp;
+while(!sorted) {
+sorted = true;
+for (int i = 0; i < array.length - 1; i++) {
+if (a[i] > a[i+1]) {
+temp = a[i];
+a[i] = a[i+1];
+a[i+1] = temp;
+sorted = false;
+}
+}
+}
+}
+
+4. Reverse a Number using a while loop in Java?
+
+public class ReverseNumber {
+public static void main(String[] args) {
+int num = 1234, reversed = 0;
+while(num != 0) {
+int digit = num % 10;
+reversed = reversed * 10 + digit;
+num /= 10;
+}
+System.out.println("Reversed Number: " + reversed);
+}
+}
+
+5. /* HDFC Banks pays interest to their customer on fixed deposit as per the rate given below:
+Interest is calculated by using formula PRT/100.
+Write a program in JAVA to calculate the amount to be paid to the customer taking principal as an input
+*/
+
+package PracticeQuestions;
+import java.util.Scanner;
+
+public class Question02 {
+	public static double getInterest(int principal, int time, double rate) {
+		return principal*rate*time/100;
+	}
+	public static void main (String args[]) {
+		Scanner sc = new Scanner(System.in);
+		int duration;
+		double value;
+		double amount;
+		System.out.println("Enter teh duration: ");
+		duration = sc.nextInt();
+		
+		if (duration==6) {
+			amount = getInterest(value);
+		}
+	}
+}
+
+6. // package whatever; // don't place package name!
+
+import java.io.*;
+import java.util.*;
+
+class MyCode {
+ public static void main (String []args) {
+  int []repChar = new int [] {10, 21, 16, 21, 25, 30, 10, 21};
+  System.out.println("Repeated Integer: ");
+  
+  for (int i=0; i<repChar.length; i++) {
+  for (int j=i+1; j<repChar.length; j++) {
+  if(repChar[i] == repChar[j])
+   System.out.println(repChar[j]);
+    }
+   }
+  }
+ }
+	/*static void characterCount (String inputString) {
+  HashMap<Character, Integer> CharCountMap = new HashMap<Character, Integer>();
+  char[] strArray = inputString.toCharArray();
+  for (char c : strArray) {
+  if (CharCountMap.containsKey(c)) {
+  CharCountMap.put(c, CharCountMap.get(c)+1);
+ }
+ else {
+ CharCountMap.put(c, 1);
+   }
+  }
+ for (Map.Entry entry : CharCountMap.entrySet()){
+ System.out.println(entry.getKey()+ " "+entry.getValue());
+  }
+ }*/
+ //
+ //String str = "abbbccaab";
+   //characterCount(str);   
+
+// String str = "abbbccaab";
+// output: a1b3c2a2b1
+// int arr[] = {10, 21, 16, 21, 25, 30, 10, 21};
+// Output: 10, 21
+
+
+8. selenium flipcart:-
+
+import org.selenium.chrome.ChromeDriver;
+import org.selenium.webelement;
+
+public class LaunchChrome {
+public static void main (String args[]) {
+WebDriver driver = new ChromeDriver();
+String url = "https://www.flipcart.com";
+driver.get(url);
+
+WebElement product = driver.findElement(by.name("textbox"));
+textbox.sendKeys("mobile");
+
+WebElement select = driver.findElement(by.name("textbox"));
+List<WebElement> mobile = select.findElements(By.tagName("Samsung Galaxy s12 pro"));
+for (WebElement mobile : Samsung Galaxy s12 pro) {
+if ("Samsung Galaxy s12 pro".equals(mobile.getText()))
+mobile.click();
+}}
+
+
+9. Web based calculator application which contains logins module:-
+	a. basic user login:- +-*/
+	b. advance user login:- scientific calculator
+
+
+10. 1. write a method which accepts two string as an input and returns true if both are anagrams
+a. sort the string, compare:
+io*, Arrays, collections
+
+class Compare {
+static boolean anagrm (char[] str1, char[] str2) {
+int a1 = str1.length;
+int a2 = str2.length;
+
+if (a1 != a2)
+return false;
+
+Arrays.sort(str1);
+Arrays.sort(str2);
+
+for (i=0; i<a; i++) {
+if (str1[i] != str2[i])
+return false;
+return true;
+}
+public static void main (String args[]) {
+
+char str1[] = {'n','a','m','a','n'};
+char str2[] = {'a','m','a','n'};
+
+if (anagrm(str1, str2))
+syso("anagrams");
+else 
+syso("not anagrams");
+}
+}
+
+
+11. if no is divisible by 3,5 & 15 then hello, world, helloworld
+
+If a number /3 ; hello
+If a number /5 ; world
+If a number /15 ; hello world
+
+
+class GFG{
+     
+    // Result function with N
+    static void result(int N)
+    {    
+        // iterate from 0 to N
+        for (int num = 0; num < N; num++)
+        {    
+            // Short-circuit operator is used
+            if (num % 3 == 0 && num % 5 == 0)
+                System.out.print(num + " ");
+        }
+    }
+      
+    // Driver code
+    public static void main(String []args)
+    {
+        // input goes here
+        int N = 100;
+          
+        // Calling function
+        result(N);
+    }
+}
+
+12. Remove Duplicate Element in Array using Temporary Array
+
+public class RemoveDuplicateInArrayExample{  
+public static int removeDuplicateElements(int arr[], int n){  
+        if (n==0 || n==1){  
+            return n;  
+        }  
+        int[] temp = new int[n];  
+        int j = 0;  
+        for (int i=0; i<n-1; i++){  
+            if (arr[i] != arr[i+1]){  
+                temp[j++] = arr[i];  
+            }  
+         }  
+        temp[j++] = arr[n-1];     
+        // Changing original array  
+        for (int i=0; i<j; i++){  
+            arr[i] = temp[i];  
+        }  
+        return j;  
+    }  
+       
+    public static void main (String[] args) {  
+        int arr[] = {10,20,20,30,30,40,50,50};  
+        int length = arr.length;  
+        length = removeDuplicateElements(arr, length);  
+        //printing array elements  
+        for (int i=0; i<length; i++)  
+           System.out.print(arr[i]+" ");  
+    }  
+}
+
+13. Collections.sort() in Java with Examples
+
+import java.util.*;
+  
+public class Collectionsorting
+{
+    public static void main(String[] args)
+    {
+        // Create a list of strings
+        ArrayList<String> al = new ArrayList<String>();
+        al.add("Geeks For Geeks");
+        al.add("Friends");
+        al.add("Dear");
+        al.add("Is");
+        al.add("Superb");
+  
+        /* Collections.sort method is sorting the
+        elements of ArrayList in ascending order. */
+        Collections.sort(al);
+  
+        // Let us print the sorted list
+        System.out.println("List after the use of" +
+                           " Collection.sort() :\n" + al);
+    }
+}
+
+14. Prime Number Program in Java
+
+public class PrimeExample{    
+ public static void main(String args[]){    
+  int i,m=0,flag=0;      
+  int n=3;//it is the number to be checked    
+  m=n/2;      
+  if(n==0||n==1){  
+   System.out.println(n+" is not prime number");      
+  }else{  
+   for(i=2;i<=m;i++){      
+    if(n%i==0){      
+     System.out.println(n+" is not prime number");      
+     flag=1;      
+     break;      
+    }      
+   }      
+   if(flag==0)  { System.out.println(n+" is prime number"); }  
+  }//end of else  
+}    
+}   
+
+
+scenario outline and datatable
+put and post
+serveerside error and clientside error
+How to Execute Failed Test Cases in Selenium WebDriver
+Runner class in cucumber
+superclass of webdriver = searchContext
+chromedriver is class or interface
+inetrface in terms of webdriver
+
+
+
+
+public class SwappingName {
+	public static void main (String args[]) {
+		String a = "Manoj";
+		String b = "Pandey";
+sop(:before swap: "+a+""+b);
+		a = a+b;
+		b = a. substring(0, a.length() - b.length());
+		a = a.substring(b.length());
+		sop("after swap: "+a+""+b);
+	}
+}
+
+
+class A
+{
+public A()
+{
+System.out.print("A");
+}
+}
+public class B extends A
+{
+public B()
+{
+System.out.print("A");
+}
+}
+public static void main(String[] args)
+{
+B b = new B();
+B bb = new A();
+A a = new B();
+ }
+ 
+ 
+ 
+ 
+ubiquity
+/juːˈbɪkwɪti/
+Learn to pronounce
+noun
+the fact of appearing everywhere or of being very common.
+"the ubiquity of mobile phones means you don't really need a watch"
+
+
+
+Write a program to get the value of any tag that we will pass to method. Eg: If we pass <city> tag then we will get "Saint Peters" in response.
+
+
+public class PassingTagName {
+    public static void main (String args []) {
+
+    Scanner sc = new Scanner(System.in);
+    String valueName = sc.nextline();    
+   String inputTag = "<input type="text" name="first_name" value="valueName"/>
+   String inputTag = "<input type="text" name="last_name" value="valueLastName"/>
+    
+   System.out.println(name+" "+value);
+    
+    }
+}
+
+  "<sender>
+    <first_name></first_name>
+    <last_name>Abbott</last_name>
+    <nationality>USA</nationality>
+    <address>
+      <line1>1929 Brothers Ct.</line1>
+      <line2></line2>
+      <city>Saint Peters</city>
+      <country_subdivision>MO</country_subdivision>
+      <postal_code>63376</postal_code>
+      <country>USA</country>
+    </address>
+    <date_of_birth>1972-12-23</date_of_birth>
+  </sender>"
+  
+
+
+Q. launching the url  in chrome browser, - select user from the dropdown list & click login
+
+import org.selenium.chrome.ChromeDriver;
+import org.selenium.webelement;
+
+public class userLogin {
+public static void main (String args[]) {
+Webdriver driver  = new ChromeDriver();
+String url = "https://www.gmail.com";
+driver.get(url);
+
+WebElement selectLogin = driver.findElement(by.name("login"));
+textbox.sendKeys("userLogin");
+
+WebElement userLogin= driver.findElement(by.name("login"));
+List<WebElement> userLogin= select.findElements(By.tagName("xyz@gmail.com"));
+for (WebElement userLogin : xyz@gmail.com) {
+if ("xyz@gmail.com".equals(userLogin.getText()))
+userLogin.click();
+}}
+
+WebElement selectCopy = driver.findElement(by.id("edi"));
+ist<WebElement> selectCopy = select.findElements(By.tagName("xyz@gmail.com"));
+
+
+
+Q. How to get all the options in the dropdown in Selenium?
+We can extract all the options in a dropdown in Selenium with the help of Select class which has the getOptions() method.
+This retrieves all the options on a Select tag and returns a list of web elements. This method does not accept any arguments.
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.concurrent.TimeUnit;
+import java.util.List;
+import org.openqa.selenium.support.ui.Select;
+public class DropdownOptions{
+   public static void main(String[] args) {
+      System.setProperty("webdriver.chrome.driver", "C:\\Users\\ghs6kor\\Desktop\\Java\\chromedriver.exe");
+      WebDriver driver = new ChromeDriver();
+      String url = " https://www.tutorialspoint.com/tutor_connect/index.php";
+      driver.get(url);
+      driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+      Select s = new Select(driver.findElement(By.xpath("//select[@name=’selType’]")));
+      // getting the list of options in the dropdown with getOptions()
+      List <WebElement> op = s.getOptions();
+      int size = op.size();
+      for(int i =0; i<size ; i++){
+         String options = op.get(i).getText();
+         System.out.println(options);
+      }
+      driver.quit()
+   }
+}
+
+
+
+Q. find substring from a string:-
+
+public class findSubString {
+public static voud main (String args[]) {
+String st = "WELCOME NAMAN";
+String sub = st.substring(9,12);
+System.out.println(sub);
+
+
+//return duplicates from list of arrayList
+//input: [[1,1,2,1],[2,2,3,4],[4,4,4,4,2]] ;
+//output: 1=3, 2=2, 4=4
+
+
+
+
+Q. you can write automation script for searching Samsung phones on Flipkart webpage using Selenium Webdriver:
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class SearchFlipkart{
+
+public static void main(String[] args) {
+  WebDriver driver = new FirefoxDriver();
+  driver.get("http://www.flipkart.com/");
+  driver.manage().window().maximize();
+  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+  Actions act = new Actions(driver);
+  WebElement mainmenu= driver.findElement(By.xpath("//*[@id='fk-mainhead-id']/div[2]/div/div[1]/ul/li[1]/a"));
+  act.moveToElement(mainmenu).build().perform();//taking mouse
+  WebElement mobiles = driver.findElement(By.xpath("//*[@id='menu-electronics-tab-0-content']/ul[1]/li[1]/a"));
+  mobiles.click();//clicking on mobiles
+ 
+  List<WebElement> brands = driver.findElements(By.xpath("//div[@id='list-tagcloud']/div[2]/a"));
+  System.out.println(brands.size());
+  for(int i=0;i<brands.size();i++){
+   System.out.println(brands.get(i).getText());//fetching all the brands
+   if(brands.get(i).getText().equals("Samsung"))//matching for samsung only
+   {
+    brands.get(i).click();//clicking pon samsung
+   }
+   brands = driver.findElements(By.xpath("//div[@id='list-tagcloud']/div[2]/a"));//for cache
+  }
+  WebElement searchbox = driver.findElement(By.xpath("//*[@id='searchbox']/li[2]/form/input[4]"));
+  searchbox.sendKeys("grand2");//in search box search for grand2
+  driver.findElement(By.xpath("//*[@id='searchbox']/li[2]/form/input[5]")).click();//clicking on search icon
+ 
+  List<String> allLinks = new ArrayList<String>();
+  List<WebElement> data = driver.findElements(By.xpath("//div[@id='products']/div/div/div/div[2]/div[@class='pu-title fk-font-13']/a"));
+  System.out.println("total fonds are =="+data.size());//total searches coming on the page
+  for(int i=0;i<data.size();i++){
+   System.out.println(data.get(i).getText());//printing all samsung phones
+   if(data.get(i).getText().contains("Grand 2"))//search for grnad2 only
+   {
+    String link = data.get(i).getAttribute("href");//fetching all the links
+    allLinks.add(link);//adding them to list
+   
+  }
+   data = driver.findElements(By.xpath("//div[@id='products']/div/div/div/div[2]/div[@class='pu-title fk-font-13']/a"));// for cache
+}
+  System.out.println(allLinks.size());//total grand2 phones
+  for(int i=0;i<allLinks.size();i++){
+   System.out.println(allLinks.get(i));
+   driver.get(allLinks.get(i));
+   driver.findElement(By.xpath("//*[@id='mplistings']/div/div/div[1]/div[3]/a")).click();//click on view sellers
+   List<WebElement> retails = driver.findElements(By.xpath("//div[@class='cart-table']/div[starts-with(@class,'line seller-item')]/div[4]/a"));//fetching info
+   System.out.println(retails.size());
+   for(int j=0;j<retails.size();j++)
+   {
+   
+    System.out.println(retails.get(j).getText());//printing all the sellers info
+   
+   }
+  
+  }
+ 
+  driver.close();
+}}
+
+
+
+
+
+**********************************************************************************
+
+Program to find number of occurrence of ‘i’ char in string “Interviews-India”?
+
+public class NumberOfOccurance {
+	public static void main (String args[]) {
+
+String st = "Interviews-India";
+char search = 'i';
+int count = 0;
+for (int m=0; m<st.length; m++) {
+	if (st.charAt(m) == search)
+	count++;
+}	
+System.out.println("Number of occurrence "+search+" appears "+count+"times");
+}}
+
+
+public class MultipleCatch { 
+public static void main(String args[]) { 
+try { 
+int n = 1000, x = 0; 
+int arr[] = new int[n]; 
+for (int i = 0; i <= n; i++) { 
+arr[i] = i / x; 
+} 
+} catch (ArrayIndexOutOfBoundsException exception) { System.out.println("1st block = ArrayIndexOutOfBoundsException"); 
+} catch (ArithmeticException exception) { System.out.println("2nd block = ArithmeticException"); 
+} catch (Exception exception) { System.out.println("3rd block = Exception"); 
+} 
+} 
+}
+
+**********************************************************************************
+Q. convert string into character:-
+
+public class MyClass {
+    public static void main(String args[]) {
+        String st = "Naman";
+        char[] ch = st.toCharArray();
+        System.out.println(st);
+        for (int i=0; i<ch.length; i++) {
+            System.out.println(ch[i]);
+        }
+    }
+}
+
+
+Q. Sort String in decreasing order:-
+
+public class MyClass {
+    public static void main(String args[]) {
+        String[] inputList = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul","aug", "Sep", "Oct", "nov", "Dec" };
+        int size = inputList.length;
+        
+        for (int i=0; i<size-1; i++) {
+         for (int j=i+1; j<inputList.length; j++) {
+             if (inputList[i].compareTo(inputList[j])>0) {
+                 String temp = inputList[i];
+                 inputList[i] = inputList[j];
+                 inputList[j] = temp;
+             }
+         }   
+        }
+        System.out.println(inputList);
+    }
+}
+
+**********************************************************************************
+
+Sort binary array:-
+
+
+public static void SortBinaryArrays(int[] Binary) { int[] sorrtedArray = new int[Binary.length]; int i = 0; for (int a : Binary) { if (a == 0) { sorrtedArray[i] = a; i++; } } for (int a : Binary) { if (a == 1) { sorrtedArray[i] = a; i++; } } for (int a : sorrtedArray) { System.out.print(a + " "); } }
+import java.util.*;
+
+(or) 
+
+class GFG {
+ 
+    static void sortBinaryArray(int a[], int n)
+    {
+        int j = -1;
+        for (int i = 0; i < n; i++) {
+ 
+            // if number is smaller than 1
+            // then swap it with j-th number
+            if (a[i] < 1) {
+                j++;
+                int temp = a[j];
+                a[j] = a[i];
+                a[i] = temp;
+            }
+        }
+    }
+ 
+    /* Driver program to test above function */
+    public static void main(String[] args)
+    {
+ 
+        int a[] = { 1, 0, 0, 1, 0, 1, 0, 1, 1, 1,
+                    1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0 };
+ 
+        int n = a.length;
+ 
+        sortBinaryArray(a, n);
+ 
+        for (int i = 0; i < n; i++)
+            System.out.print(a[i] + " ");
+    }
+}
+
+
+
+Code to find a missing number in an array:-
+
+
+public void missing() { ArrayList arr = new ArrayList(); int a[] = { 1, 3, 4, 5, 6, 7, 10 }; int j = a[0]; for (int i = 0; i &lt; a.length; i++) { if (j == a[i]) { j++; continue; } else { arr.add(j); i--; j++; } } System.out.println("missing numbers are "); for (int r : arr) { System.out.println(" " + r); } }
+
+(or)
+
+// Java program to find missing Number
+import java.util.*;
+import java.util.Arrays;
+class GFG {
+    public static List<Integer>
+    findDisappearedNumbers(int[] nums)
+    {
+        for (int i = 0; i < nums.length; i++) {
+            int index = Math.abs(nums[i]);
+            if (nums[index - 1] > 0) {
+                nums[index - 1] *= -1;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                res.add(i + 1);
+            }
+        }
+        return res;
+    }
+    public static void main(String[] args)
+    {
+        int[] a = { 1, 2, 4, 5, 6 };
+        System.out.println(findDisappearedNumbers(a));
+    }
+}
+
+
+reverse words in a string in java:-
+
+public class StringFormatter {  
+public static String reverseWord(String str){  
+    String words[]=str.split("\\s");  
+    String reverseWord="";  
+    for(String w:words){  
+        StringBuilder sb=new StringBuilder(w);  
+        sb.reverse();  
+        reverseWord+=sb.toString()+" ";  
+    }  
+    return reverseWord.trim();  
+}  
+}
+
+
+(or)
+
+public class TestStringFormatter {  
+public static void main(String[] args) {  
+    System.out.println(StringFormatter.reverseWord("my name is khan"));  
+    System.out.println(StringFormatter.reverseWord("I am sonoo jaiswal"));    
+    }  
+}  
+
+
+
+
+Java program to reverse a string's words characters:-
+
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Original string : ");
+ 
+        String originalStr = scanner.nextLine();
+        scanner.close();
+ 
+        String words[] = originalStr.split("\\s");
+        String reversedString = "";
+ 
+        for (int i = 0; i < words.length; i++) 
+        {
+            String word = words[i];
+            String reverseWord = "";
+            for (int j = word.length() - 1; j >= 0; j--) {
+                reverseWord = reverseWord + word.charAt(j);
+            }
+            reversedString = reversedString + reverseWord + " ";
+        }
+ 
+        // Displaying the string after reverse
+        System.out.print("Reversed string : " + reversedString);
+    }
+}
+Program output.
+
+Console
+Original string : I love java programming
+Reversed string : I evol avaj gnimmargorp
+
+
+Java program to reverse a string's words characters:-
+
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Original string : ");
+ 
+        String originalStr = scanner.nextLine();
+        scanner.close();
+ 
+        String words[] = originalStr.split("\\s");
+        String reversedString = "";
+ 
+        //Reverse each word's position
+        for (int i = 0; i < words.length; i++) { 
+            if (i == words.length - 1) 
+                reversedString = words[i] + reversedString; 
+            else
+                reversedString = " " + words[i] + reversedString; 
+        } 
+ 
+        // Displaying the string after reverse
+        System.out.print("Reversed string : " + reversedString);
+    }
+}
+
+
+
+
+********************************************************Companies******************************************
+
+
+TDD & BDD
+In TDD, I’m not concerned about the output. The only thing needed is to carry out the test in a particular way.”
+In BDD, I don’t mind how you come up with the output, except the output has to be correct under the given condition.
+BDD (Behavioral Driven Development) is a software development approach that was developed from Test Driven Development (TDD). All test cases are written in the form of simple English statements inside a feature file, which is human-generated. Acceptance test case statements are entirely focused on user actions.
+
+
+Blackbox testing and whitebox testing
+In Black Box, testing is done without the knowledge of the internal structure of program or application whereas in White Box, testing is done with knowledge of the internal structure of program.
+When we compare Blackbox and Whitebox testing, Black Box test doesn’t require programming knowledge whereas the White Box test requires programming knowledge.
+Black Box testing has the main goal to test the behavior of the software whereas White Box testing has the main goal to test the internal operation of the system.
+Comparing White box testing and Black box testing, Black Box testing is focused on external or end-user perspective whereas White Box testing is focused on code structure, conditions, paths and branches.
+
+Boundary value analysis & equivalence partitioning
+Boundary value analysis	is a technique where we identify the errors at the boundaries of input data to discover those errors in the input center.
+	Equivalence partitioning is a technique where the input data is divided into partitions of valid and invalid values.
+Boundary values are those that contain the upper and lower limit of a variable.
+	In equivalence partitioning, the inputs to the software or the application are separated into groups expected to show similar behavior.
+The Boundary Value Analysis is often called a part of the Stress and Negative Testing.
+	The Equivalence partitioning can be suitable for all the software testing levels such as unit, integration, system.
+Sometimes the boundary value analysis is also known as Range Checking.	
+	Equivalence partitioning is also known as Equivalence class partitioning.
+
+************************************************************TIAA Interviews:->
+
+ Behavior Driven Development is a software development approach that allows the tester/business analyst to create test cases in simple text language (English).
+The simple language used in the scenarios helps even non-technical team members to understand what is going on in the software project.
+	Selenium is a web browser automation tool. Cucumber is a behavior-driven development tool that can be used with Selenium (or Appium).
+	Selenium is preferred by technical teams (SDETs/programmers). Cucumber is typically preferred by non-technical teams (business stakeholders and testers)
+
+ Scenario & Scenario-outline:	Scenario outline is exactly similar to the scenario structure, but the only difference is the provision of multiple inputs. In order to use scenario outlines, we do not need any smart idea, we just need to copy the same steps and re-execute the code.
+Eg..
+Feature: Login Functionality  
+Scenario Outline: Login functionality
+Username | Password
+username1 | password1
+username2 | password2
+username3 | password3
+username4 | password4
+In the above example, we have provided multiple input values for the variables "Username" and "Password". While executing the actual test, Cucumber will replace the variables with the provided input values.
+
+Once username1 has been executed with password1, the test will execute for the second iteration with another input value. Cucumber will follow this path until the completion of all provided values.
+
+ RTC Usage - A real-time clock (RTC) is an electronic device (most often in the form of an integrated circuit that measures the passage of time. Although the term often refers to the devices in personal computers, servers and embedded systems, RTCs are present in almost any electronic device which needs to keep accurate time.
+
+ Test Design
+Test Strategy is a high-level document (static document) and usually developed by a project manager. It is a document which captures the approach on how we go about testing the product and achieve the goals. It is normally derived from the Business Requirement Specification (BRS). Documents like Test Plan are prepared by keeping this document as base.
+	Components of the Test Strategy document:-
+Scope and overview, Test Approach, Testing tools, Industry standards to follow, Test deliverables, Testing metrics, Requirement Traceability Matrix, Risk and mitigation, Reporting tool, Test summary
+
+ Test plan document is a document which contains the plan for all the testing activities to be done to deliver a quality product. 
+Test plan document guides us how the testing activity should go on. Success of the testing project completely depends on Test Plan.
+	Components of the Test Plan document:-
+Test Plan Identifier, References, Introduction, Test Items, Features To Be Tested, Features Not To Be Tested, Approach, Pass/Fail Criteria, Suspension Criteria, Test Deliverables, Testing Tasks, Environmental Needs, Responsibilities, Staffing and Training Needs, Schedule, Risks and Contingencies, Approvals
+
+ Test Case Writing - Test Case ID, Test Description, Assumptions and Pre-Conditions, Test Data, Steps to be Executed, Expected Result, Actual Result and Post-Conditions, Pass/Fail
+
+ Test Execution - Test execution is the process of executing the code and comparing the expected and actual results.
+Following factors need to be considered for a test execution process − Based on a risk, select a subset of test suite to be executed for this cycle.
+
+ Defect Management - It is process where most of the organizations manage the Defect Discovery, Defect Removal, and then the Process Improvement. As the name recommends, the Defect Management Process (DMP) manages defects by purely detecting and resolving or fixing the faults.
+
+ Test Automation using Selenium - Selenium is a free (open-source) automated testing framework used to validate web applications across different browsers and platforms. You can use multiple programming languages like Java, C#, Python etc to create Selenium Test Scripts.
+
+ ALM tool is a tool that helps organizations to manage the application lifecycle right from project planning, requirements gathering, until Testing & deployment, which otherwise is a time-consuming task.
+ALM tools essentially function as project management tools that help you bring people and processes together. Look for a tool that includes version control, the ability for teams to communicate in real time, requirements management features, estimation and project planning, source code management, and test management.
+
+ JIRA Usage - JIRA is a project management tool used for issues and bugs tracking system. It is widely used as an issue-tracking tool for all types of testing.
+
+ Device Connect - Yet another tool to connect Android phone with desktop similar to KDE Connect.
+Features:
+* Lightweight and fast
+* AES-256 encryption with password
+* Upload files from phone to desktop
+* Open files and web URLs from phone on desktop
+* Download files from pre-defined directories at desktop to phone
+* Show phone notification on desktop
+* Execute pre-defined commands on desktop
+
+KDE Connect (K Desktop Environment) is an Android and a desktop app that acts as a bridge between your mobile device and your computer. KDE Connect provides a ton of useful features such as pushing Android notifications to your desktop, viewing device battery status on your computer, and cross-device clipboard synchronization.
+	KDE Connect is a multi-platform application developed by KDE, which facilitates wireless communications and data transfer between devices over local networks. KDE connect is available in the repositories of many Linux Distributions and F-droid, Google Play Store for Android.
+
+ Sauce Lab
+Sauce Labs is the only cloud-based continuous testing platform that enables developers to run their automated tests across desktops, emulators, simulators and real devices, using Selenium, Appium, Espresso or XCUITest.
+
+************************************************************FIS Global Interview:->
+1.	Different types of annotations in TestNG:-
+@BeforeMethod:	This will be executed before every @test annotated method.
+@AfterMethod:	This will be executed after every @test annotated method.
+@BeforeClass:	This will be executed before first @Test method execution. It will be executed one only time throughout the test case.
+@AfterClass:	This will be executed after all test methods in the current class have been run
+@BeforeTest:	This will be executed before the first @Test annotated method. It can be executed multiple times before the test case.
+@AfterTest:		A method with this annotation will be executed when all @Test annotated methods complete the execution of those classes inside the <test> tag in the TestNG.xml file.
+@BeforeSuite:	It will run only once, before all tests in the suite are executed.
+@AfterSuite:	A method with this annotation will run once after the execution of all tests in the suite is complete.
+@BeforeGroups:	This method will run before the first test run of that specific group.
+@AfterGroups:	This method will run after all test methods of that group complete their execution.
+
+2.	How do we achieve parallel execution in TestNG:-
+	TestNG provides multiple ways to execute tests in separate threads.
+	In TestNG. xml, if we set 'parallel' attribute on the tag to 'tests', TestNG will run all the '@Test' methods in tag in the same thread, but each tag will be in a separate thread. This helps us to run test methods / classes / tests in parallel
+
+3.	What are the different arguments passed along with @Test annotation in TestNG:-
+	There are mainly two ways through which we can provide parameter values to TestNG tests.
+	The @Parameters annotation can be used for any of the @Before, @After, @Factory, and @Test annotated methods.
+	It can be used to initialize variables and use them in a class, test, or may be for the whole test execution.
+
+4.	How do we include and exclude the group in the TestNG xml file:-
+	Groups are included and excluded from the new group by using the include and exclude tags. Here, TestNG executed only two methods, as mentioned in the included-group group and excluded the test methods that belong to the excluded-group. You can define as many groups of groups as you want.
+
+5.	How do we use the data provider in TestNG with an example:-
+	For example, dpMethod here. If the tester has not specified the name of the dataprovider, then the method name becomes the dataprovider name by default.
+	TestNG dataprovider returns a 2d list of objects. The method then performs a data-driven test for each value that you have specified.
+
+***************************************************************Globant Pune Interview Question:->
+1.	Synchronisation in selenium:-
+when two or more components involved to perform any action, we expect these components to work together with the same pace. The co-ordination between these components to run paralelly is called Synchronization. Synchronization (Wait) in Selenium has a great significant value.
+
+Unconditional Synchronization:	Indicates timeout value alone and makes tool to continue further only when specified time is elapsed. For eg.. System.Threading.Thread.Sleep();
+Conditional Synchronization:	We can specify timeout duration along with some desired conditions to check and then throw an error if nothing happens. For eg.. Implicit/Explicit waits
+
+
+2.	Waits:-
+	Implicit wait:	Implicit Wait directs the Selenium WebDriver to wait for a certain measure of time before throwing an exception.
+					Once this time is set, WebDriver will wait for the element before the exception occurs.
+					Once the command is in place, Implicit Wait stays in place for the entire duration for which the browser is open.
+					driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
+					
+	Explicit wait:	By using Explicit Wait command, the WebDriver is directed to wait until a certain condition occurs before proceeding with executing the code.
+					This causes an unnecessary delay in executing the test script.
+					Explicit wait is more intelligent, but can only be applied for specified element s.
+					WebDriverWait w = new WebDriverWait(driver,);
+					w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("<<xpath expression>>")));
+					
+	Fluent wait:	The Fluent Wait command defines the maximum amount of time for Selenium WebDriver to wait for a certain condition to appear.
+					To put it simply, Fluent Wait looks for a web element repeatedly at regular intervals until timeout happens or until the object is found.
+					Wait<WebDriver> w = new
+					FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
+					
+	Static wait:	Used to pause the execution for a specified amount of time.	For eg.. Thread.Sleep(1000)
+
+3.	Alerts:-
+Alerts are basically an interface between the current web page and UI. It can also be defined as a small message box which displays an on-screen notification to give the user some kind of information or ask for permission to perform a certain kind of operation. It may be also used for warning purpose.
+
+4.	Actions class:-
+Used to handle Keyboard and mouse events. Handeling includes operations such as Drag-&-Drop, Clicking on multiple elements with a control Key, etc.
+
+5.	Multiple windows and frame handling:-
+It is a unique identifier that holds the address of all the windows. Think of it as a pointer to a window, which returns the string value. It is assumed that each browser will have a unique window handle. This window handle function helps to retrieve the handles of all windows.
+String Mainwindow = driver.getWindowHandle()
+
+6.	About Framework:-
+•	Framework:	A framework, or software framework, is a platform for developing software applications.
+				It provides a foundation on which software developers can build programs for a specific platform.
+				A framework may also include code libraries, a compiler, and other programs used in the software development process.
+	
+•	Selenium framework:				A code structure for making code maintenance simpler, and code readability better.
+									A framework involves breaking the entire code into smaller pieces of code, which test a particular functionality.
+									It is made up of Test-Base Class, Page Object Model, Functions Library, Property Files, Test NG
+	Data-Driven Test Framework:		All of our test data is generated from some external files like Excel, CSV, XML or some database table.
+	Keyword Driven Test Framework:	The basic working of the Keyword Driven Framework is to divide the Test Case into four different parts.
+									First is called as Test Step, second is Object of Test Step, third is Action on Test Object and fourth is Data for Test Object.
+	Hybrid Test Framework:			Hybrid Test framework is a concept where we are using the advantage of both Keyword and Data-driven framework.
+
+7.	How to reexecute failed testcase:-
+Create testing .xml file under project folder.
+Right click on the testng .xml >> Run As >> TestNG suite.
+In the test-output folder >> testng-failed .xml file will be created.
+Right click on testng-failed.
+In this way we can execute fail testcases in TestNG class.
+
+After the first run of an automated test run. Right click on Project – Click on Refresh.
+A folder will be generated named “test-output” folder. Inside “test-output” folder, you could find “testng-failed.xml”
+Run “testng-failed.xml” to execute the failed test cases again.	
+
+8.	What if maximum timeout set to 30sec and element found in 10sec in implicit wait:-
+	It will wait for complete 30 seconds.
+
+9.	Type of exception in selenium:-
+Checked (Compiletime) and Unchecked (Runtime) Exceptions.
+
+10.	Jsexecuter:-
+JavaScriptExecutor is an Interface that helps to execute JavaScript through Selenium Webdriver. JavaScriptExecutor provides two methods "executescript" & "executeAsyncScript" to run javascript on the selected window or current page.
+
+11.	Exception for findelement and findelements:-
+The findElement method throws a NoSuchElementException exception when the element is not available on the page.
+The findElements method returns an empty list when the element is not available or doesn't exist on the page. It doesn't throw NoSuchElementException
+
+12.	Testing-
+Priority to set
+Cn we give negative priority
+What if don't give priority
+
+13.	Dataprovider:-
+DataProviders are a framework for easily controlling how data can be provided from a source (generally, a dataset's file contents). They are meant to be: Be fast and efficient by allowing narrow queries that provide only specified amounts of data from specified locations.
+
+14.	Invocation count:-
+Invocation count is used when you want to run the same tests multiple times.
+
+15.	Annotations of TestNG:-
+TestNG Annotation is a piece of code which is inserted inside a program or business logic used to control the flow of execution of test methods.
+
+
+16.	How to reduce execution time of testcases:-
+Introduce Continuous Integration (CI) Tools:
+Use CI Tools not Only to Run Scripts, but also to Automate All Manual Steps!
+Introduce Dynamic Timeouts.
+Unlock the Power of Parallel Execution and Virtualization.
+Build a Fully Integrated Automation Framework.
+
+
+String concepts:-
+Exception type:-
+Final, Finally, Finalize:-
+1)	Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final method can't be overridden and final variable value can't be changed.	Finally is used to place important code, it will be executed whether exception is handled or not.	Finalize is used to perform clean up processing just before object is garbage collected.
+2)	Final is a keyword.	Finally is a block.	Finalize is a method.
+
+	Can we overload and override constructor:-
+Constructor Overriding is never possible in Java. This is because, Constructor looks like a method but name should be as class name and no return value.
+Overriding means what we have declared in Super class, that exactly we have to declare in Sub class it is called Overriding.
+
+
+	What is static & Final:-
+Static is keyword is used to define the class member that can be used independently of any object of that class.
+Final keyword is used to declare, a constant variable, a method which can not be overridden and a class that can not be inherited.
+	
+	How to set value of static variable/method:-
+static String college = "ITS";
+static void change(){)
+
+	Can we overload private methods:-
+private and final methods can be overloaded but they cannot be overridden. It means a class can have more than one private/final methods of same name but a child class cannot override the private/final methods of their base class.	
+	
+	
+	String program to read character count using hash map:-
+HashMap<Character, Integer> charCount = new HashMap<Character, Integer>();
+char[] strArray = inputString.toCharArray();
+for (char c : strArray) {
+	if (charCount.containsKey(c)) {
+		charCount.put(c, charCount.get(c) + 1);
+      }
+      else {
+	charCount.put(c, 1);
+      }
+    }
+	for (Map.Entry entry : charCount.entrySet()) {
+      System.out.println(entry.getKey() + " " + entry.getValue());
+    }
+  }
+		public static void main(String[] args)
+  {
+    String str = "Ajit";
+    characterCount(str);
+  }
+}
+
+waits?
+background keyword in cucumber,
+how to open firefox in selenium
+datatable in selenium
+how to switch from one frame to another?
+how to handle frameS?
+how to click all buttons in selenium?
+Explicit wait condition?
+how-to-display-employee-names-starting-with-a-and-then-b-in-sql
+pom.xml contains?
+What is maven used for?
+What are microservices?
+Check whether two strings are anagram of each other?
+write a method which accepts two string as an input and returns true if both are anagrams?
+test pyramid?
+aggregate functions of sql?
+what is payload? payload in put method?
+How to find the auto suggestion on google search with Xpath?
+
+A Project Object Model or POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
+
+Maven can add all the dependencies required for the project automatically by reading pom file.
+One can easily build their project to jar,war etc.
+Maven makes easy to start project in different environments and one doesn't needs to handle the dependencies injection, builds, processing, etc.
+
+Microservices is a distributed system where we devide big component into small small pieces.
+We can hide servies from external world via API Gateway so that we can give dummy URL for calling any services and he may not get the original stuffs.
+Due to this we can prevent vulnarability, fraud, etc..
+
+A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image.
+Using docker build users can create an automated build that executes several command-line instructions in succession.
+
+
+
+****************************************************
+Hooks:-
+In Cucumber, the hook is the block of code which can be defined with each scenario in step definition file by using the annotation @Before and @After. These @Before and @After annotations create a block in which we can write the code.
+
+@Before
+As the name suggests, we can use the @Before hook with the function/method after which we need to start web driver.
+
+@After
+As the name suggests, we can use the @After hook with the function/method after which we need to close the web driver.
+
+
+*******************************************************************************
+How can we change the language before initializing the webdriver?
+
+
+Here is the code snippet for achieving Internationalization for Selenium Java:
+
+	
+FirefoxProfile firefoxProfile = new FirefoxProfile();
+firefoxProfile.setPreference("intl.accept_languages", "locale-of-choice");
+firefoxOptions.setProfile(firefoxProfile);
+
+
+Here is the code snippet for achieving Internationalization for Selenium Java:
+
+ChromeOptions chromeOptions = new ChromeOptions();
+chromeOptions.addArguments("--lang= locale-of-choice");
+
+
+Difference between sleep and setSpeed in selenium?
+
+Both sleep() and setSpeed() are used to delay the speed of execution.
+
+The main difference between them is that:
+
+setSpeed sets a speed that will apply a delay time before every Selenium operation.
+
+thread.sleep() will set up wait only for once when called.
+
+The return type of data provider?
+DataProvider method returns a 2D list of objects.
+we get test data in forms of rows and columns so that we need 2D object (object type because we are free to pass any type data String, int etc.)
+
+How would you locate a button which is present on UI with only span class it doesn't have an ID class or anything?
+You can locate this element via Xpath or Css selector without using its attribute, which it does not have any.
+
+How would you save a cookie value in Webdriver?
+
+    Create WebDriver instance.
+    Login into the Application.
+    Read the cookie information using driver.manage().getCookies();
+    Store the cookie information using FileWriter Class to write streams of characters and BufferedWriter to write the text into a file to create into a file Cookies.data.
+Add Cookie
+Method Name: addCookie(Cookie cookie)
+Syntax:driver.manage().addCookie(arg0);
+Purpose: To add a specific cookie into cookies. If the cookie's domain name is left blank, it is assumed that the cookie is meant for the domain of the current document.
+Parameters: cookie - The name of the cookie to add.
+Click here for example program
+
+Delete Cookie
+Method Name: deleteCookie(Cookie cookie)
+Syntax: driver.manage().deleteCookie(arg0);
+Purpose: Delete a cookie from the browser's "cookie jar". The domain of the cookie will be ignored.
+Parameter: Cookie
+Click here for example program
+
+Delete Cookie with Name
+Method Name: deleteCookieNamed(java.lang.String name)
+Syntax: driver.manage().deleteCookieNamed(arg0);
+Purpose: Delete the named cookie from the current domain. This is equivalent to setting the named cookie's expiry date to sometime in the past.
+Parameters: name - The name of the cookie to delete
+Click here for example program
+
+Delete All Cookies
+Method Name: deleteAllCookies()
+Syntax: driver.manage().deleteAllCookies();
+Purpose: It will delete all the cookies for the current domain.
+
+
+How will you specify a data provider under Test annotation?
+
+public class DP
+{
+    @DataProvider (name = "data-provider")
+     public Object[][] dpMethod(){
+	 return new Object[][] {{"First-Value"}, {"Second-Value"}};
+     }
+	
+    @Test (dataProvider = "data-provider")
+    public void myTest (String val) {
+        System.out.println("Passed Parameter Is : " + val);
+    }
+}
+
+
+
+Write a program for the reverse string.
+    public class StringFormatter {
+    public static String reverseString(String str){
+    StringBuilder sb=new StringBuilder(str);
+    sb.reverse();
+    return sb.toString();
+    }
+    }
+---
+    import java.util.Scanner;  
+    class ReverseStringExample1  
+    {  
+    public static void main(String args[])  
+    {  
+    String s;  
+    Scanner sc=new Scanner(System.in);  
+    System.out.print("Enter a String: ");  
+    s=sc.nextLine();                    //reading string from user  
+    System.out.print("After reverse string is: ");  
+    for(int i=s.length();i>0;--i)                //i is the length of the string  
+    {  
+    System.out.print(s.charAt(i-1));            //printing the character at index i-1  
+    }  
+    }  
+    }  

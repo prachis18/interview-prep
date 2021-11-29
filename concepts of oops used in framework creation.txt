@@ -1,0 +1,101 @@
+1. Use of public keyword in base class to initialize Webdriver so that it is accessible via other classes.
+
+The public access modifier is accessible everywhere. So, we can easily access the public inside and outside the class and package
+
+2.Homepage class extends base class ---shows inheritance so that all the methods of base class (parent class) can be extended by child class such as brower driver selection , property set.
+
+3. Page Object Model class for each page of your website. ---encapsulation
+
+4.To send arguments into landing page called in homepage which actually is plain we need to create a constructor.
+
+5.driver.switchTo().frame(String name); ---overloaded method
+
+6.driver = new ChromeDriver(); --upcasting
+
+!#####################################################################################
+!################	KEYWORDS			!##############################################
+!##########################################################################################
+
+
+The super keyword in Java is a reference variable which is used to refer immediate parent class object.
+Usage of Java super Keyword
+
+    super can be used to refer immediate parent class instance variable. ---- System.out.println(super.color);/
+    super can be used to invoke immediate parent class method. ---- super.eat();  
+    super() can be used to invoke immediate parent class constructor.--- super();  
+
+As we know well that default constructor is provided by compiler automatically if there is no constructor. But, it also adds super() as the first statement.
+
+
+Why use instance initializer block?
+Suppose I have to perform some operations while assigning value to instance data member e.g. a for loop to fill a complex array or error handling etc.
+
+There are three places in java where you can perform operations:
+
+    method
+    constructor
+    block
+    class Bike{  
+        int speed=100;  
+    }  
+
+What is invoked first, instance initializer block or constructor?
+The java compiler copies the instance initializer block in the constructor after the first statement super(). So firstly, constructor is invoked. 
+
+
+    The instance initializer block is created when instance of the class is created.
+    The instance initializer block is invoked after the parent class constructor is invoked (i.e. after super() constructor call).
+    The instance initializer block comes in the order in which they appear.
+
+
+
+The final keyword in java is used to restrict the user. The java final keyword can be used in many context. Final can be:
+
+    variable --stop value change
+    method  -- stop overriding
+    class  -- stop inheritance
+
+
+s final method inherited?
+
+Ans) Yes, final method is inherited but you cannot override it. 
+
+
+
+ What is final parameter?
+
+If you declare any parameter as final, you cannot change the value of it.
+
++
+The final keyword can be applied with the variables, a final variable that have no value it is called blank final variable or uninitialized final variable. It can be initialized in the constructor only. The blank final variable can be static also which will be initialized in the static block only
+
+
+    class Bike11{  
+      int cube(final int n){  
+       n=n+2;//can't be changed as n is final  
+       n*n*n;  
+      }  
+      public static void main(String args[]){  
+        Bike11 b=new Bike11();  
+        b.cube(5);  
+     }  
+    }  
+
+Test it Now
+
+Output: Compile Time Error
+
+
+ Can we declare a constructor final?
+
+No, because constructor is never inherited.
+
+Upcasting
+
+If the reference variable of Parent class refers to the object of Child class, it is known as upcasting.
+
+A method is overridden, not the data members, so runtime polymorphism can't be achieved by data members.
+
+In the example given below, both the classes have a data member speedlimit. We are accessing the data member by the reference variable of Parent class which refers to the subclass object. Since we are accessing the data member which is not overridden, hence it will access the data member of the Parent class always. 
+
+
