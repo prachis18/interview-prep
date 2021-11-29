@@ -1,0 +1,707 @@
+1.New Maven Project. 
+
+ src/main/java and src/test/java folders
+
+2.Create a 'resources' folder
+
+second is to create a new resources folder under src/test/
+we keep Cucumber feature files in resources folder
+
+Right-click on the src/test/java and create a New Package.  
+Make sure to add it under the correct path which is CucumberFramework/src/test and specify the name as resources.
+
+3.Adding all the dependencies using maven pom.xml
+Add Cucumber Dependencies to the Project
+
+    cucumber-java
+    cucumber-jvm-deps
+    cucumber-junit
+
+4.Set up Maven Compiler Plugin
+
+The Compiler Plugin is used to compile the sources of your project. Also note that at present the default source setting is 1.5 and the default target setting is 1.5, independently of the JDK you run Maven with. If you want to change these defaults, you should set source and target as described in Setting the -source and -target of the Java Compiler
+
+5.Create a Test Package & a Test Class(this will get deleted after step 6)
+
+Create a New Package by right click on the src/test/java package and select New >> Package. Give your package a name seleniumTests and click Finish.
+
+Create a New Class file by right click on the src/test/java package and select New >> Class. Give your test case a good name in the resulting dialog and click Finish to create the file. Also to make sure to check public static void main, as we will be running the test from the same main method
+
+6. Write a test in a Feature File
+
+
+    Create a New Package and name it as functionalTests, by right click on the src/test/resources and select New >> Package. Note: It is always recommended to put all the feature files in the resources folder.
+
+    Create a Feature file and name it as End2End_Test.feature by right click on the above-created package and select New >> File.
+Add the test steps to the feature file.
+
+7.  : Create a JUnit Test Runner
+
+
+Create a New Package and name it as runners by right click on the src/test/java and select New >> Package.
+
+Create a New Java Class file and name it as TestRunner by right click on the above created package and select New >> Class
+
+8. Write test code to Step file
+
+To get the steps automatically generated, we need to execute TestRunner class. Right-click on the TestRunner file and select Run As >> JUnit Test. You would get the below result in the Eclipse Console.
+
+
+
+Create a New Package and name it as stepDefinitions by right click on the src/test/java and select New >> Package.
+
+Create a New Java Class and name it is as Steps by right click on the above created package and select New >> Class.
+
+Now copy all the steps created by Eclipse to this Steps file and start filling up these steps with Selenium Code.  Take all the code from our Selenium Test file created in the End2End_Test.
+
+9. We also need to make sure that the TestRunner file would also able to find the steps files. To achieve that we need to mention the path of the package, where we have kept all of our step definitions in CucumberOptions. To know more parameters of @CucumberOptions
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		features = "src/test/resources/functionalTests",
+		glue= {"stepDefinitions"}
+		)
+Note: By default Junit/Cucumber finds the test code in the src/test/java folder, this is why we just need to specify the package name for the cucumber glue.
+
+10. Run the Cucumber Test
+	Run as JUnit
+Now we are all set to run the first Cucumber test. Right Click on TestRunner class and Click Run As  >> JUnit Test. Cucumber will run the script the same way it runs in Selenium WebDriver and the result will be shown in the left-hand side project explorer window in JUnit tab.
+
+Run Cucumber Test from Command Prompt
+
+Since we are following Maven Type project, we have a liberty to run test from command prompt. A simple command to run tests is mvn clean test. But to use the same you have to be in the Cucumber project. In the below screenshot first I went to my project location, which is in my case C:/ToolsQA/CucumberFramework and then I used the above-mentioned maven command to run test. 
+
+11. Page Object Design Pattern with Selenium PageFactory in Cucumber
+{{{To better manage the code and to improve the re-usability, this pattern suggests us to divided an application in different pages or a single page into sub pages}}}
+
+
+Create a New Package file and name it as pageObjects, by right click on the src/main/java and select New >> Package.
+. As page objects are the part of the framework, we keep all the page objects in src/main/java folder.
+
+Create a New Class file and name it as the actual page from the test object, by right click on the above-created Package and select New >> Class. In our case it is CheckoutPage.
+to initiate page object factory the code is :
+
+CheckoutPage checkoutPage = new CheckoutPage();
+
+PageFactory.initElements(driver, checkoutPage );
+But the duty of the Framework is to minimize the code where ever it can. Let say if the application has ten pages to automate. To do the task, it is required to create the object of ten pages first and then initialize ten pages to use their objects. This will make the test very lengthy and filthy. It is a good idea to abstract this task from the test. By placing the Init statement in the Page Class Constructor, half of the code from the test can be reduced.
+By placing the Init statement in the Page Class Constructor, half of the code from the test can be reduced.
+
+public CheckoutPage(WebDriver driver) {      PageFactory.initElements(driver, this); }
+
+Binding Methods
+
+The other way to Optimizing Page Object Model or improving the test code is to wrap re-usable actions in the PageObject class itself.
+
+Now think of the reusable function in the example, that we have used in this Selenium Cucumber Framework series. The answer is entering personal details. The code for entering personal details will be called again and again in every test script. Isn’t a nice idea to wrap that action into a function and use it as many time as required.
+
+Doing this is not a difficult task, as above we already initialized the elements of the page within the class constructor. Now the elements are ready to use in the PageObject class itself.
+
+Improve Code Re-Usability of Step Definition File
+
+If you notice that in the step file, we created Checkout Page object almost four different times for four different methods. This is because the scope of Local Variable in Java is limited to its method only. To improve that, it is better to create Class Variables like
+
+public class Steps {
+	HomePage home;
+	ProductListingPage productListingPage;
+	CartPage cartPage;
+	CheckoutPage checkoutPage;
+}
+
+
+
+
+12. The duty of the Page Object Manager is to create the page's object and also to make sure that the same object should not be created again and again. But to use a single object for all the step definition files.
+
+
+Design Page Object Manager Class
+
+    Create a New Package file and name it as managers, by right click on the src/main/java and select New >> Package. As this Page Object Manager is a part of the framework, we keep this in src/main/java folder.
+
+    Create a New Class file and name it as PageObjectManager by right click on the above-created Package and select New >> Class.
+
+Constructor
+
+public PageObjectManager(WebDriver driver) {      this.driver = driver; }
+
+This constructor is asking for parameter of type WebDriver. As to create an object of the Pages, this class requires a driver. Now who so ever will create the object of this class needs to provide the driver like :
+
+PageObjectManager pageObjectManager = new PageObjectManager(driver);
+
+Page Object Creation Method
+
+public HomePage getHomePage() {
+
+return (homePage == null) ? new HomePage(driver) : homePage;
+
+}
+
+This method has two responsibilities:
+
+    To create an Object of Page Class only if the object is null.
+    To supply the already created object if it is not null
+
+Notice, now the duty of the creation of all the pages assigned to only one class which is Page Object Manager.
+PS: are no changes required in our Page Objects classes
+
+No change in Test Runner file; Feature File
+
+
+13. How to Read Configurations from Property File in Selenium Cucumber Framework or in any framework
+
+.properties files are mainly used in Java programs to maintain project configuration data, database config or project settings, etc. Each parameter in properties file is stored as a pair of strings, in key-value pair format, where each key is on one line. You can easily read properties from some file using an object of type Properties. This is a utility provided by Java itself.
+
+java.util.Properties;
+
+Create a New Folder and name it as configs, by right click on the root Project and select New >> Folder. We will be keeping all the config files with in the same folder.
+
+Create a New File by right click on the above created folder and select New >> File.
+The only thing we need to do is to give the file name and give the extension as .properties. In our case we name it as Configuation.properties.
+
+Remember white space between the property name and property value is always ignored.
+
+
+Create a Config File Reader
+
+    Create a New Package and name it as dataProvider, by right click on the src/test/java and select New >> Package. We will keep all the data readers files here in this package.
+
+    Create a New Class file and name it as ConfigFileReader, by right click on the above-created package and select New >> Class.
+
+How to Load Property File
+BufferedReader reader = new BufferedReader(new FileReader(propertyFilePath));
+Properties properties = new Properties();
+properties.load(reader);
+
+    propertyFilePath : This is just a String variable which holds the information of the config file path.
+    new FileReader(propertyFilePath) : Creates a new FileReader, given the name of the file to read from.
+    new BufferedReader(new FileReader(propertyFilePath)) : Reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.
+    new Properties() : The Properties class represents a persistent set of properties. The Properties can be saved to a stream or loaded from a stream. Each key and its corresponding value in the property list is a string.
+    properties.load(reader) : Reads a property list (key and element pairs) from the input character stream in a simple line-oriented format.
+
+
+onfigFileReader Method
+
+public String getDriverPath(){
+		String driverPath = properties.getProperty("driverPath");
+		if(driverPath!= null) return driverPath;
+		else throw new RuntimeException("driverPath not specified in the Configuration.properties file.");		
+	}
+
+    properties.getProperty("driverPath") :Properties object gives us a .getProperty method which takes the Key of the property as a parameter and return the Value of the matched key from the .properties file.
+    If the properties file does not have the specified key, it returns the null. This is why we have put the null check and in case of null we like to throw an exception to stop the test with the stack trace information.
+
+Use ConfigFileReader object in the Steps file
+To use the ConfigFileReader object in the test, we need to fist create an object of the class. ConfigFileReader configFileReader= new ConfigFileReader();
+Although it is bad practice to create object of property file in every class. We created the object of the same in Steps file and now we created again in the HomePage class. But do not worry for now, I got something special for you in the next chapter.
+
+
+14. t is better to have a File Reader Manager above all the File Readers. And it is better to make the manager class as singleton.
+What is Singleton Design Pattern?
+
+The Singleton's purpose is to control object creation, limiting the number of objects to only one. Since there is only one Singleton instance, any instance fields of a Singleton will occur only once per class, just like static fields.
+
+How to implement Singleton Pattern?
+
+To implement Singleton pattern, we have different approaches but all of them have the following common concepts.
+
+    Private constructor to restrict instantiation of the class from other classes.
+    Private static variable of the same class that is the only instance of the class.
+    Public static method that returns the instance of the class, this is the global access point for outer world to get the instance of the singleton class.
+
+
+Create a New Class and name it as FileReaderManager, by right click on the managers package and select New >> Class.
+
+
+    The FileReaderManager class maintains a static reference to its own instance and returns that reference from the static getInstance() method.
+    FileReaderManager implements a private constructor so clients cannot instantiate FileReaderManager instances.
+    getConfigReader() method returns the instance of the ConfigFileReader but this method is not static. So that client has to use the getInstance() method to access other public methods of the FileReaderManager like FileReaderManager.getInstance().getConfigReader()
+
+    Now start using FileReaderManager in test code.
+
+
+15. Design WebDriver Manager
+
+The only responsibility of the WebDriver Manager is to get us the WebDriver, when we ask for it. To accomplish this we will be doing the below activities:
+
+    Specify new WebDriver Properties in the Configuration File
+    Create Enums for DriverType and EnvironmentType
+    Write new Method to read the above properties
+    Design a WebDriver Manager
+    Modify the Steps file to use the new WebDriver Manager in the script
+
+
+Add WebDriver Properties in the Configuration file
+
+Keep yourself in a place of WebDriver Manager and think what all the information you need to start a new webdriver. If I get into his shoes, I would ask for:
+
+    Environment Name: Test can run on Local or on Remote Machine or on cloud
+    Browser Name: Test can ask for any browser
+    ImplicitlyWait: This can be required by WebDriver
+    DriverPath: In case of Chrome
+
+
+reate Enums for DriverType and EnvironmentType
+
+It is always consider a good approach to create enums for all the hard coded values in the project, so define the standard.
+
+    Create a New Package and name it as enums, by right click on the src/test/java and select New >> Package. We will be keeping all the project enums in this package.
+
+    Create a New Enum  and name it as DriverType, by right click on the above created Package and select New >> Enum.
+
+    Add three different value as of now. There can be other browsers as well but let's just take Chrome, Firefox, and IExplorer.
+
+The same way creates another Enum class for EnvironmentType and add Local & Remote to it.
+Write a new Method to Read new properties
+
+Start writing the getMethods() for all the newly added properties in the ConfigFileReader class.
+
+    getBrowserWindowSize() : Retrieve the property using getProperty method of Properties class. Null check is performed and in case of null by default value is returned as true. In case of not null, String value is parsed to Boolean.
+    getEnvironment() : EnvironmentType.Local is returned in case of Null and if the value is equal to Local. Which means that in case of missing environment property, execution will be carried on local machine.
+    getBrowser() : Default value is returned as DriverType.Chrome in case of Null. Exception is thrown if the value does not match with anything.
+
+
+Design a WebDriver Manager
+
+Now it is the time to design the WebDriver Manager. The most awaited task of this chapter. The only thing which we need to keep in mind is that the manager would expose only two method for now which are getDriver() and closeDriver(). GetDriver method will decide if the driver is already created or needs to be created. GetDriver method further call the method createDriver(), which will decide that the remote driver is needed or local driver for the execution. Accordingly, CreateDriver method would make a call let's say to createLocalDriver(). CreateLocalDriver method will further decide which type of driver needs to be created.
+
+16. Why Sharing Test Context or Scenario Context or Context?
+
+
+DI container to instantiate your step definition classes and wire them up correctly. One of the supported DI containers is PicoContainer.
+
+What is PicoContainer?
+
+It’s a tiny library written by Paul Hammant in 2003-2004. It is pretty awesome because it's so little and simple:
+
+    PicoContainer doesn’t require any configuration
+    PicoContainer doesn't require your classes to use any APIs such as the horrible @Inject - just use constructors
+    PicoContainer really only has a single feature - it instantiates objects
+
+Simply hand it some classes and it will instantiate each one, correctly wired together via their constructors. That’s it. Cucumber scans your classes with step definitions in them, passes them to PicoContainer, then asks it to create new instances for every scenario.
+
+We will be performing below steps to share data state across steps:
+
+    Add PicoContainer to the Project
+    Create a Test Context class which will hold all the objects state
+    Divide the Steps class into multiple steps classes with logical separation
+    Write Constructor to share Test Context
+
+Step 1: Add PicoContainer Library to the Maven Project
+
+This is really simple, as we have been using Maven Project, all we need to do is to add the dependencies in to the project POM file. 
+
+Step 2: Create a Test Context class
+
+Be wise to create this class logically. Just think what all information your Steps file are using and put that information in to this class. In our case our steps file is just using the below information:
+
+    PageObjects : Provided by PageObjectManager
+    WebDriver: Provided by WebDriverManager
+    Properties: Provided by FileReaderManager
+
+ if you re-look at the objects, you would release that our FileReaderManager is already a Singleton Class and to use it we don't need to create an instance of it. It creates its instance by itself. So no need to add FileReaderManager to TestContext class, as this class can be referred directly statically like FileReaderManager.getInstance().
+
+Create a New Package and name it as cucumber, by right click on the src/test/java and select New >> Package. We will keep all the Cucumber Helper classes in the same package moving forward.
+
+Create a New Class file and name it as TestContext by right click on the above-created package and select New >> Class.
+s we just decided to keep only two objects in it. So we kept the initialization in the constructor and created getMethods() for both the objects.
+
+
+Step 3: Divide the Steps file
+
+I would just divide the steps file as I did the separations between the Page Objects. For every different page, we have a separate PageObject class. So it makes sense to have a separate step definition class for every page as well. May be your application is different and you won't get to agree with my approach. In that case who cares :) Divide your steps accordingly.
+
+Create four New Classes in the stepDefinitions package with the following names:
+
+    HomePageSteps
+    ProductPageSteps
+    CartPageSteps
+    CheckoutPageSteps
+
+
+Step 4: Write Constructor for Step Definition classes to share TestContext
+
+I hope now you would understand, what I was referring to. You need WebDriverManager & PageObjectManager in every step file, otherwise, you need to create objects for both classes using new operator again and again, which is Kill Bill.
+
+Now with just adding Constructor to HomePageSteps file and pass TestContext as a Parameter to constructor would take all the pain. Within the TestContext object we have everything available which is required for the test. So now let's see how the new HomePageSteps class would look.
+
+Using PicoContainer to share state between steps in a scenario is easy and non-intrusive. All you need is a constructor that requires an object that PicoContainer can create and inject. PicoContainer is invisible. Add a dependency to cucumber-picocontainer and make sure that the constructors for the step classes require an instance of the same class.
+
+
+17. use Hooks in Selenium Cucumber Framework
+
+ Create a New Class file and name it as Hooks by right click on the stepDefinitions package select New >> Class.
+
+
+
+
+18. Data Driven Testing using JSON with Cucumber
+
+We have to do lot of amendments in our project in this chapter to implement Data Driven Technique using JSON files:
+
+    Decide what data needs to pass through JSON files
+    Create JSON Data set
+    Write a Java POJO class to represent JSON data
+    Pass JSON data file location to Properties file and Write a method to read the same
+    Create a JSON Data Reader class
+    Modify FileReaderManager to accommodate JSON Data Reader
+    Modify Checkout Steps file to pass Test Data to Checkout Page Objects
+    Modify Checkout Page object to use Test Data object
+
+
+tep 1 : Selecting Test Data for JSON files
+
+Feature: Automated End2End Tests
+Description: The purpose of this feature is to test End 2 End integration.
+ 
+Scenario Outline: Customer place an order by purchasing an item from search	
+	Given user is on Home Page
+	When he search for "dress"
+	And choose to buy the first item
+	And moves to checkout from mini cart
+	And enter "<customer>" personal details on checkout page
+	And select same delivery address
+	And select payment method as "check" payment
+	And place the order
+Examples:
+	|customer|
+	|Lakshay|
+
+
+Step 2 : Create JSON data set for Customer data
+
+
+
+    Create a New Package and name it as testDataResources, by right click on the src/test/resources and select New >> Package. As we know that we need to keep all out test resources in the src/test/resources folder, it is better to create a package with in that to have all the JSON file in it.
+
+    Create a New File and name it is as Customer.json by right click on the above created package and select New >> File.
+
+
+Step 3 : Write a Java POJO class to represent JSON data
+
+To use this JSON data in the test we need to first deserializes the JSON into an object of the specified class. And to have the JSON deserialized, a java class object must be created that has the same fields names with the fields in the JSON string.
+
+And there are websites which actually helps you to create POJO java classes out of JSON like http://www.jsonschema2pojo.org/ .
+
+ustomer class code in to the project.
+
+    Create a New Package and name it as testDataTypes, by right click on the src/test/java and select New >> Package. We will be keeping all the data types classes with in this package only.
+
+    Create a New Class and name it is as Customer by right click on the above created package and select New >> Class.
+
+
+Step 4: Prepare ConfigFileReader to read Json path location from Properties
+
+
+    First just make an extra entry on the Configuration.properties file for the JSON file path
+
+testDataResourcePath=src/test/resources/testDataResources/
+
+with above complete Configuration file will become like this:
+
+environment=local
+browser=chrome
+windowMaximize=true
+driverPath=C:\\ToolsQA\\Libs\\Drivers\\chromedriver.exe
+implicitlyWait=20
+url=http://www.shop.demoqa.com
+testDataResourcePath=src/test/resources/testDataResources/
+
+Now create a read method for the same in the Config File Reader class:
+
+public String getTestDataResourcePath(){
+	String testDataResourcePath = properties.getProperty("testDataResourcePath");
+	if(testDataResourcePath!= null) return testDataResourcePath;
+	else throw new RuntimeException("Test Data Resource Path not specified in the Configuration.properties file for the Key:testDataResourcePath");		
+}
+
+In the above code, we just get the value saved in the config file for key testDataResourcePath. We throw the exception in case of null value returned from getProperty() method or return the value if it is found not null.
+
+Create a JSON Data Reader class
+
+There are two important things, we should be careful about.
+
+    As of now there is just one JSON data file for Customer, but later there can be many other files like Product, Payment etc.
+    This class may have a method which can return a whole list of Customer data like getAllCustomers() and later you filter the data as per your requirement. Or you can make it bit restrict and expose different methods to access data like getCustomerByName or getCustomerFromIndia(). Decide what suits you best.
+
+
+Explanation:
+
+    getCustomerData() : This is a private method, which has the logic implemented to read the Customer Json and save it to the class instance variable. You should be creating more methods like this if you have more test data files like getPaymentOptions(), getProducts() etc.
+    JsonDataReader(): Here the responsibility of the constructor is to call getCustomerData() method only.
+    getCustomerByName() : This just filter the information and return the specific customer to the test. Same method can also be written as :
+
+
+Step 6 : Modify FileReaderManager to return JSsonDataReader object
+
+As you know we have a FileReaderManager singleton class over all the readers, so we need to make an entry of JsonDataReader in that as well.
+
+Step 7 : Modify CheckoutPage Steps file to pass Test Data to Checkout Page Objects
+
+All the setup work is done, it is the time to move closer to the test. As we already have modified our feature file in the first step, now we need to make necessary changes to the step file as well.
+
+xplanation : Fetching the Customer data from json reader using getCustomerByName() by passing the Customer Name. Supplying the same data to the Checkout page objects fill_PersonalDetails() method. The complete class would look like this:
+
+
+Step 8 : Use Customer test data to fill information
+
+Finally we come closer to the end, just use customer object to fill all the information and test prep work is complete.
+
+19. Implement Wait Utility in the Framework
+
+    Create a New Package and name it as selenium, by right click on the src/test/java and select New >> Package. As this some what related to Selenium WebDriverWait, I like to call it as selenium package.
+
+    Create a New Class and name it as Wait by right click on the above created Package and select New >> Class.
+
+    Put above created methods in that file now.
+
+20. 
+ the TestContext is the parent class and the medium to share the information between the different steps in a test. It can have many class objects in it. If you go back to our previous tutorial of Test Context, you will realize that it already has PageObjectManager and WebDriverManager object in it.
+
+Other hand Scenario Context is a class that holds the test data information specifically. It actually uses the Test Context to travel the information between various steps. Within this ScenarioContext class, you can create any number of fields to store any form of data. It stores the information in the key-value pair and again, value can be of any type. It can store String, Boolean, Integer or maybe a Class. Also, the important point here is that the information which we store in the Scenario Context is generated run time. Means during the run if you wish to store some information, you will use Scenario Context.
+
+Step 1: Design a Scenario Context class
+
+    Create a New Enum and name it as Context by right click on the enums package and select New >> Enum. Just add a Product_Name in the Context Enum as of now.
+
+Create a New Class and name it as ScenarioContext by right click on the cucumber package and select New >> Class.
+Explanation
+
+    scenarioContext : This is a HasMap object which stores the information in the Key-Value pair. Key type is String and Value can be of any Object Type.
+    setContext(): This method takes two parameters,  key as String and value as object. Key is nothing but a Context enum.
+    getContext(): This method takes the key as a parameter and returned the object which matches the key.
+    isContains(): This method performs a check on the complete Map that if it contains the key or not.
+
+    Include ScenarioContext in TextContext, so that it can be shared across all the Cucumber Steps using Pico-Container library. Also, to make sure to add a getter method as getScenarioContext() to get the scenarioContext object.
+
+
+Include ScenarioContext in TextContext, so that it can be shared across all the Cucumber Steps using Pico-Container library. Also, to make sure to add a getter method as getScenarioContext() to get the scenarioContext object.
+
+Step 2: Save test information/data/state in the Scenario Context
+
+To use the value of the product name later in the test for the validation, it is required to save the Name as first. In the below step of the Test Scenario, we are adding product in the bag. It makes sense to save the name at this time to ScenarioContext object.
+
+    Add a new method getProductName() in the ProductListingPage class which will return the Name of the Product. This method will take the product position as a parameter and return its name only.
+
+
+
+    Now, using the getProductName() method, get the name and save it into the scenarioContext object in ProductPageSteps class for the below step:
+
+Cucumber Step: And choose to buy the first item
+
+Step 3: Add a Step to Test for Product Name Validation
+
+    The first step is to add a new Cucumber Step to Cucumber Test. As we want to verify the Product Name at the last page of the application, which is Confirmation Page, we add this step at the last:
+
+Then verify the order details
+
+I have added a generic step as Order Details, as I want you guys to practice more on it. As of now we will just add a Product Name validation in it, but I want you to verify multiple values in the test. Which can be these:
+
+    Product Details
+    Shipping Details
+    Discount Details
+
+
+
+    Need to create a new Page Object for the Confirmation Page. Feel free to add as many objects you can and put validations for the same. For the simplicity of the test, I am just adding an object of the Product Name list.
+
+3. Create a New Class and name it as ConfirmationPage, by right click on the pageObjects and select New >> Class.
+
+Note: Returning names of all the products displayed on the page.
+
+    Add a new getConfirmationPage() method to get the Confirmation Page object in the PageObjectManager class.
+
+
+5. Create a New Class and name it as ConfirmationPageSteps, by right click on the stepDefinitions and select New >> Class.
+Explanation
+
+verify_the_order_details()
+
+    To retrieve the value of the Product Name, just need to pass the Key to the getContext() method which can be accessed like testContext.scenarioContext.getContext(Key Name).
+    But, the method returns any object, so we need to cast it to the right type. If we mistakenly cast it to wrong type, the test will fail here. So, we must sure for what object we stored for what key. Or even this can be handled with in the code, but let's just avoid any complexity here for now.
+
+    This is the last step, just add a JQuery waits after the submitting Order in CheckoutPage object.
+
+
+21. CUCUMBER REPORTS:
+
+If we are more concerned about the time taken by each Step Definition, then we should use the usage plugin. This is how we specify the same in @CucumberOptions:
+
+@CucumberOptions( plugin = { "usage" })---his sorts the Step Definitions by their average execution time. The output from the usage plugin is useful for quickly finding slow parts in your code but it is also a great way to get an overview of your Step Definitions.
+
+@CucumberOptions( monochrome = true ); --- OUTPUT TO BE  readable
+
+@CucumberOptions( plugin = { "pretty" } ) --this provides more verbose output. To implement this, just specify plugin = "pretty" in CucumberOptions.
+
+@CucumberOptions(plugin = { "pretty", "html:target/cucumber-reports" } -- For HTML reports, add html:target/cucumber-reports to the @CucumberOptions plugin option.
+
+@CucumberOptions(plugin = { "pretty", "json:target/cucumber-reports/Cucumber.json" }) --For JSON reports, add json:target/cucumber-reports/Cucumber.json to the @CucumberOptions plugin option
+
+@CucumberOptions(plugin = { "pretty", "junit:targe/cucumber-reports/Cucumber.xml" }) -- For JUNIT reports, add junit:targe/cucumber-reports/Cucumber.xml to the @CucumberOptions plugin option.
+
+@CucumberOptionsplugin = { "pretty", "json:target/cucumber-reports/Cucumber.json",
+			"junit:target/cucumber-reports/Cucumber.xml",
+			"html:target/cucumber-reports"},--- FOR ALL REPORTS TOGETHER
+
+22. Cucumber Extent Report
+
+This is again an awesome plugin that is built on Extent Report specially for Cucumber by Vimal Selvam. This is why it is named as Cucumber Extent Reporter. This one is actually made to ease the implementation of Extent Report in Cucumber Framework. Let's start by implementing the same in our Selenium Cucumber Framework.
+
+Step 1: Add Cucumber Extent Reporter library to Maven Project
+
+This is really simple, as we have been using Maven Project, all we need to do is to add the dependencies in to the project POM file. Dependencies information can be taken from Maven Repository – Cucumber Extent Reporter.
+Note: If you are using Java 8+, in that case, it is required to add the dependency of ExtentReport v3.0.6+ as well.
+
+Add Extent Report library
+
+Dependencies information can be taken from Maven Repository – Extent Report.
+
+Note: Make sure to add these dependencies under <dependencies> Add here</dependencies> tag. Also after adding dependencies, always do Maven >> Update Project by Right Click on Project.
+
+Step 2 - Add Extent Config to the Project
+
+Extent Config is required by the Cucumber Extent Report plugin to read the report configuration. As it gives the capability to set many useful settings to the report from the XML configuration file.
+
+    Create a New File and name it as extent-config.xml by right click on the configs folder in the project. In this config file you can set many elements like :
+
+    Report Theme : <theme> : standard or dark
+    Document Encoding : <encoding> : UFT-8
+    Title of the Report : <documentTitle> : This will display on the Browser Tab
+    Name of the Report: <reportName>: This will display at the top of the Report
+    Global Date Format : <dateFormat> : Like this yyyy-MM-dd
+    Global Time Format  : <timeFormat> : Like this HH:mm:ss
+
+extent-config.xml
+
+Step 3: Read the extent-config.xml path
+
+    Make an entry for the Path of the config in the Configuration.properties file.
+
+reportConfigPath=C:/ToolsQA/CucumberFramework/configs/extent-config.xml
+
+Note: Make sure to edit the path as per your machine path.
+
+    Write a method getReportConfigPath() in the ConfigFileReader class to return the extent report config file path.
+
+Step 4:  Modify TestRunner to Implement Cucumber Extent Reporter
+
+    Modify the runner class and add the com.cucumber.listener.ExtentCucumberFormatter:output/report.html as a plugin followed by the report file as input. This should be done within the @CucumberOptions annotation.
+
+@CucumberOptions( plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"})
+
+The above setup will generate the report in the output directory with the name of the report.html.
+
+    Write Extent Reports
+
+Add a method writeExtentReport() in the TestRunner class to write the report.
+
+Set System Information in Report
+
+This gives you nice feature to set multiple System properties to the report, so that you know under which system configurations your test suite was executed and when. To set this just make use of Reporter class and access its static method setSystemInfo() and pass it your information like below.
+
+@AfterClass
+	public static void writeExtentReport() {
+		Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+	    Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
+	    Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
+	    Reporter.setSystemInfo("Machine", 	"Windows 10" + "64 Bit");
+	    Reporter.setSystemInfo("Selenium", "3.7.0");
+	    Reporter.setSystemInfo("Maven", "3.5.2");
+	    Reporter.setSystemInfo("Java Version", "1.8.0_151");
+	}
+
+
+Assign the Author to Test Scenarios
+
+This gives you capability to assign Author of the tests. If the tests are written by different people, you can tag these tests accordingly. To set this just make use of Reporter class and access its static method assignAuthor() and pass it your information like below.
+
+Reporter.assignAuthor("ToolsQA - Lakshay Sharma");
+
+But as it has to be done before the Scenario actually starts executing, Add a new method in Hooks class using cucumber.api.java.Before like below:
+
+@Before
+public void beforeScenario(Scenario scenario) {
+	Reporter.assignAuthor("ToolsQA - Lakshay Sharma");
+}
+
+Or if you know what all scenarios are written by whom, you can create a logic around like this:
+
+@Before
+public void beforeScenario(Scenario scenario) {
+	if (scenario.getName().equals("Some scenario name")) {
+		Reporter.assignAuthor("ToolsQA - Lakshay Sharma");
+}
+
+
+Or specify multiple Authors at once.
+
+Reporter.assignAuthor("author1", "author2", ...);
+
+
+Add Logging to your Reports
+
+User can add logs at any step and those logs will be captured and attached to the corresponding step. The log should be added as follows:
+
+Reporter.addStepLog("Step Log message goes here");
+
+In case any log to be added at the scenario level, the following can be done:
+
+Reporter.addScenarioLog("Scenario Log message goes here");
+
+It's a static class, so feel free to use this Reporter class to anywhere in the project.
+Add Screenshot for Failed Scenario
+
+This feature is my favorite as it gives you the capability to embedded the screenshot in the report itself using Reporter class: Reporter.addScreenCaptureFromPath(screenshotPath)
+
+Below you will find the complete code to capture a screenshot and attach the same to the report, only if the scenario is Fail. In case of Pass, no screenshot would be taken.
+
+23. Run Cucumber Test from Command Line / Terminal
+
+Maven will allow our test cases to be run in different flavors, such as from the Terminal, integrating with Jenkins, and parallel execution.
+
+Run Test from Command Line
+
+1. Open the command prompt and cd until the project root directory.
+
+Run Cucumber Test from Command Line / Terminal
+
+    First, let's run all the Cucumber Scenarios from the command prompt. Since it's a Maven project and we have added Cucumber in test scope dependency and all features are also added in src/test packages, run the following command in the command prompt: mvn test
+
+Running Cucumber Test from Command Line 6
+
+You would notice below that it actually triggered the TestRunner file.
+
+Note: mvn test runs Cucumber Features using Cucumber's JUnit Runner. The @RunWith (Cucumber.class) annotation on the TestRunner class tells JUnit to kick off Cucumber. Cucumber run time parses the command-line options to know what Feature to run, where the Glue Code lives, what plugins to use, and so on.
+
+On the other hand, if you run test from eclipse when you use the JUnit Runner, these options are generated from the @CucumberOptions annotation on your test.
+Overriding Cucumber Options
+
+At times, you would need to override the configurations specified in @CucumberOptions. If we want to override the configurations mentioned in the Runner, then we need to use following command: mvn test –DCucumber.options="Your Options"
+
+If you need help on these Cucumber options, then enter the following command in the command prompt and look at the output: mvn test -Dcucumber.options="--help"
+
+Running a Scenario from Command Line
+
+If we want to run single Scenario from the cmd, this is how we specify : mvn test -Dcucumber.options="feature file path" + "line number of the scenario"
+
+Running Scenarios using Tags from Command Line
+
+If you want to run the test cases associated to Tags, this is how we specify : mvn test -Dcucumber.options="--tags @tag Name"
+
+Overriding Report Plugin and Path
+
+If you want to generate a different report or if you wish to change the report path. This how you do it: mvn test -Dcucumber.options="--plugin junit:target/cucumber-reports/report.xml".
+
+Please look at our Cucumber Report to see what all reports you can generate using @CucumberOptions.
+
+Running a Feature file only from Command Line
+
+If you want cucumber to run just a single feature file or multiple feature file, you can pass parameter for the same from command line. This how you do it:
+
+mvn test -Dcucumber.options="src/test/resources/functionalTests/End2End_Tests.feature"
+
+Passing multiple Parameter at once
+
+Its also possible to pass multiple options at once. This is how it can be done mvn test -Dcucumber.options="SomeThing" -Dcucumber.options="SomeThing" -Dcucumber.options="SomeThing"
+
+mvn test -Dcucumber.options="src/test/resources/functionalTests/End2End_Tests.feature" -Dcucumber.options="--tags @Smoke"
+

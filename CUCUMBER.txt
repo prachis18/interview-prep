@@ -1,0 +1,935 @@
+***************Cucumber Feature File********************
+
+A Feature File is an entry point to the Cucumber tests. This is a file where you will describe your tests in Descriptive language (Like English). It is an essential part of Cucumber, as it serves as an automation test script as well as live documents. A feature file can contain a scenario or can contain many scenarios in a single feature file but it usually contains a list of scenarios
+
+On the Feature folder Right-click and select New > File
+	
+In order for Cucumber to automatically detect the stories (or features, as they’re known in Cucumber), you need to make sure that they carry the 'feature' file extension. For example, in this case, I’ve named my user story 'LogIn_Test.feature'. Every 'feature' file conventionally consists of a single feature. 
+
+Feature: Login Action
+
+Scenario: Successful Login with Valid Credentials
+	Given User is on Home Page
+	When User Navigate to LogIn Page
+	And User enters UserName and Password
+	Then Message displayed Login Successfully
+
+Scenario: Successful LogOut
+	When User LogOut from the Application
+	Then Message displayed LogOut Successfully
+
+Keywords
+
+Now moving forward we have just defined a test. You will notice colored parts of the tests (Feature, Scenario, Given, When, And and Then). These are keywords defined by Gherkin. Gherkin has more keywords and we will discuss those in the following tutorials. But to start off we can quickly explain some of the keywords in one line. Note this is not a complete listing of Keywords:
+
+Feature: Defines what feature you will be testing in the tests below
+
+Given: Tells the pre-condition of the test
+
+And: Defines additional conditions of the test
+
+Then: States the post condition. You can say that it is the expected result of the test.
+
+A language above is called Gherkin and it implements the principles of Business readable domain specific language(BRDSL). Domain-specific language gives you the ability to describe your application behavior without getting into details of implementation. 
+
+
+
+***************************JUnit Test Runner Class**********************
+
+Cucumber uses Junit framework to run
+ As Cucumber uses Junit we need to have a Test Runner class. This class will use the Junit annotation @RunWith(), which tells JUnit what is the test runner class.
+
+
+It more like a starting point for Junit to start executing your tests. In the src folder create a class called TestRunner.
+
+
+Create a new Class file in the ‘cucumberTest‘ package and name it as ‘TestRunner‘, by right click on the Package and select New > Class.
+package cucumberTest;
+
+import org.junit.runner.RunWith;
+import cucumber.api.CucumberOptions;
+import cucumber.api.junit.Cucumber;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+		features = "Feature"
+		,glue={"stepDefinition"}
+		)
+
+public class TestRunner {
+
+}
+
+
+Import Statements
+
+First import statement 'org.junit.runner.RunWith' imports @RunWith annotation from the Junit class. @RunWith annotation tells JUnit that tests should run using Cucumber class present in 'Cucumber.api.junit' package.
+
+Second import statement 'cucumber.api.CucumberOptions' imports the @CucumberOptions annotation. This annotation tells Cucumber a lot of things like where to look for feature files, what reporting system to use and some other things also. But as of now in the above test, we have just told it for the Feature file folder.
+
+
+Errors on running Cucumber Feature
+
+Exception in thread "main" cucumber.runtime.CucumberException: No backends were found. Please make sure you have a backend module on your CLASSPATH.
+
+Solution
+
+Most probably this means that your cucumber-java version and java version on your machine is not compatible with each other.  First, check Java Version on your machine by going through this article How to check Java/JDK Version Installed on your Machine.
+
+On my machine, I have Java 1.8.0 with cucumber-Java8-1.2.5 and it did not work. When I degraded my cucumber java version to cucumber-Java-1.2.5, it worked fine for me. Just make sure that first, you remove the cucumber-java which did not work for you from Project build path >> Libraries and then add new. Keeping both may create further issues for you.
+
+Exception in thread "main" java.lang.NoClassDefFoundError: gherkin/formatter/Formatter
+
+Solution
+
+*This means that the Gherkin version you are using is not compatible with other Cucumber libraries. I tried using the latest gherkin3-3.0.0  but it did not work for me, so I degraded it to gherkin-2.12.2
+
+I got below versions on Oct'17 for Cucumber
+
+    cobertura-2.1.1
+    cucumber-core-1.2.5
+    cucumber-java-1.2.5
+    cucumber-junit-1.2.5
+    cucumber-jvm-deps-1.0.5
+    cucumber-reporting-3.10.0
+    gherkin-2.12.2
+    junit-4.12
+    mockito-all-2.0.2-beta
+
+With this understanding let's move on to the next topic where we will talk about Gherkin Keywords and the syntax it provided to write application tests/behavior.
+
+
+*************Gherkin Keywords**************
+
+Gherkin is not necessarily used to write automated tests. Gherkin is primarily used to write structured tests which can later be used as project documentation. 
+
+
+    Feature
+    Background
+    Scenario
+    Given
+    When
+    Then
+    And
+    But
+    ' * '
+
+
+
+Feature: Keyword
+
+Each Gherkin file begins with a Feature keyword. Feature defines the logical test functionality you will test in this feature file. For e.g, if you are testing a payment gateway your Feature will become Payment Gateway or if you are testing the LogIn functionality then the Feature will become Login.
+
+Feature: LogIn Action Test
+
+Or
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Or
+
+Feature: LogIn Action Test
+
+This feature will test a LogIn and LogOut functionality
+Notice that whatever comes after the Feature: keyword, will be considered as the feature description. Feature description can span across multiple lines as shown above in the second example. Everything after Feature: till the next Keyword is encountered is considered as feature description
+
+Note: Description is not a keyword of Gherkin.
+
+Background: Keyword
+
+Background keyword is used to define steps that are common to all the tests in the feature file. For example, to purchase a product, you need to do the following steps:
+
+    Navigate to Home Page
+    Click on the LogIn link
+    Enter UserName and Password
+    Click on Submit button
+
+After these steps only you will be able to add a product to your cart/basket and able to perform the payment. Now as we are in a feature file where we will be testing only the Add to Cart functionality, these tests become common for all tests. So instead of writing them again and again for all tests, we can move it under the background keyword. This is how it will look like:
+
+
+eature: Add to Cart
+
+This feature will test functionality of adding different products to the User basket from different flow
+
+Background: User is Logged In
+
+Scenario: Search a product and add the first result/product to the User basket
+
+Given User searched for Lenovo Laptop
+
+When Add the first laptop that appears in the search result to the basket
+
+Then User basket should display with 1 item
+
+
+Scenario: Keyword
+
+Each Feature will contain a number of tests to test the feature. Each test is called a Scenario and is described using the Scenario: keyword.
+
+Scenario: Search a product and add the first result/product to the User basket
+
+Or
+
+Scenario: Successful LogIn with Valid Credentials
+
+A scenario is equivalent to a test in our regular development process. Each scenario/test can be basically broken down into three parts:
+
+    Precondition to the test, which represent with (Given) keyword
+    Test step execution, which represent with (When) keyword
+    Verification of the output with expected result, which represent with (Then)
+
+Given Keyword
+
+Given defines a precondition to the test. For e.g. In the shopping website, assume that the LogIn page link is only present on the Home Page, so the precondition for clicking the LogIn link is that the user is at the Home Page. If user is not at the Home Page, user would not be able to enter Username & Password. This precondition can be expressed in Gherkin like this:
+
+Scenario: Successful LogIn with Valid Credentials
+
+Given User is on Home Page
+
+When User Navigate to LogIn Page
+When Keyword
+
+When keyword defines the test action that will be executed. By test action we mean the user input action.
+
+Scenario: Successful LogIn with Valid Credentials
+
+Given User is on Home Page
+
+When User Navigate to LogIn Page
+
+Here user is performing some action using When keyword, clicking on the LogIn link. We can see that when defines the action taken by the user. It's the event that will cause the actual change in state of the application.
+Then Keyword
+
+Then keyword defines the Outcome of previous steps. We can understand it best by looking at the test above and adding a Then step there.
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Scenario: Successful Login with Valid Credentials       Given User is on Home Page
+
+When User Navigate to LogIn Page
+
+And User enters UserName and Password
+
+Then Message displayed LogIn Successfully
+
+Here we can see that Then is the outcome of the steps above. The reader of this test would easily be able to relate to Then step and would understand that when the above conditions are fulfilled then the Then step will be executed.
+And Keyword
+
+And keyword is used to add conditions to your steps. Let's look at it by modifying our example a little
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Scenario: Successful Login with Valid Credentials
+
+Given User is on Home Page
+
+When User Navigate to LogIn Page
+
+And User enters UserName and Password
+
+Then Message displayed Login Successfully
+
+Or
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Scenario: Successful Login with Valid Credentials
+
+Given User is on Home Page
+
+And LogIn Link displayed
+
+When User Navigate to LogIn Page
+
+And User enters UserName and Password
+
+Then Message displayed Login Successfully       And LogOut Link displayed
+
+Here you would see that And is being used to add more details to the Given step, it's simply adding more conditions. We have just added three conditions. Use it when you have specified more than one condition. And is used to add more conditions to Given, When and Then statements.
+But Keyword
+
+But keyword is used to add negative type comments. It is not a hard & fast rule to use but only for negative conditions. It makes sense to use But when you will try to add a condition which is opposite to the premise your test is trying to set. Take a look at the example below:
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Scenario: Unsuccessful Login with InValid Credentials
+
+Given User is on Home Page
+
+When User Navigate to LogIn Page
+
+And User enters UserName and Password
+
+But The user credentials are wrong
+
+Then Message displayed Wrong UserName & Password
+
+Here you can see how adding But has helped define a negative test, in this test we will try to test failure conditions. Where a wrong credentials are a failure condition.
+Keyword
+
+This keyword is very special. This keyword defies the whole purpose of having Given, When, Then and all the other keywords. Basically Cucumber doesn't care about what Keyword you use to define test steps, all it cares about what code it needs to execute for each step. That code is called a step definition and we will discuss about it in the next section. At this time just remember that all the keywords can be replaced by the * keyword and your test will just work fine. Let's see with example, we had this test earlier:
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Scenario: Successful Login with Valid Credentials
+
+Given User is on Home Page
+
+When User Navigate to LogIn Page
+
+And User enters UserName and Password       Then Message displayed Login Successfully
+
+Using * Keyword
+
+Feature: LogIn Action Test
+
+Description: This feature will test a LogIn and LogOut functionality
+
+Scenario: Successful Login with Valid Credentials
+
+* User is on Home Page
+
+* User Navigate to LogIn Page
+
+* User enters UserName and Password
+
+* Message displayed Login Successfully
+
+Here we conclude the tutorial on different keywords of Cucumber. I hope you like it. Let's now jump deep into how to execute these steps with the help of Step Definition file.
+
+
+*******************Step Definition File***************
+
+
+The next target is to test or run the feature file and in order to test the feature file, it is required to write the implementation or step definition for each step in the Step Definition File in C Sharp. When SpecFlow executes a Step in a Scenario it will look for a matching Step Definition to execute.
+
+A Step Definition file is a small piece of code with a pattern attached to it or in other words a Step Definition is a C# method in a class with an annotation above it. An annotation followed by the pattern is used to link the Step Definition to all the matching Steps, and the code is what SpecFlow will execute when it sees a Gherkin Keywords.
+
+Create a new Folder by right click on the ‘Project‘ and navigating to Add -> New Folder.
+
+Name the folder as ‘Steps’ and hit enter.
+
+ Notice, the color of the statements mentioned in the feature file is violet. It means these statements do not have any definition attached to it. It is very easy to implement all the steps. Right-click on your feature file in the code editor and select Generate Step Definitions from the popup menu.
+
+StepDefinition_2
+
+2) This display a Pop Up window, which will ask to select the statements for which Step Definition file is to be created. Select all and click on Generate button. Do not forget to give it a logical name. In this case I named it as 'Login_Steps', as all the steps in this will file will be related to user Login.
+
+StepDefinition_3
+
+3) It will ask to specify the folder path to save the Step Definition file. As a new Steps folder was created to keep the definition file, mention the path for the same folder with the name of the Steps file. In this case, I have named it as 'LogIn_Steps'. Hit Save button to move forward.
+
+StepDefinition_4
+
+4) All the statements in the feature file will change the color now, it means these Feature statements are linked with Step Definitions.
+
+    To have a look at the attached definitions, click on the any statement and press F12 button. This will open up the linked definition file and the cursor will be pointing to the linked definition.
+
+
+Step Definition method Implementation
+
+This stuff is really easy if you know how to work with Selenium. In the last chapter of SpecFlow Feature File, we took a simple example of Selenium Test script for LogIn functionality. Now start picking up the code from the same Selenium Test Script and fit it into SpecFlow steps
+
+Complete Step Definition: LogIn_Steps
+
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using TechTalk.SpecFlow;
+
+namespace SpecFlowDemo.Steps
+{
+    [Binding]
+    public class LogIn_Steps
+    {
+        public IWebDriver driver;
+        [Given(@"User is at the Home Page")]
+        public void GivenUserIsAtTheHomePage()
+        {
+            driver = new FirefoxDriver();
+            driver.Url = "https://www.store.demoqa.com";
+        }
+
+        [Given(@"Navigate to LogIn Page")]
+        public void GivenNavigateToLogInPage()
+        {
+            driver.FindElement(By.XPath(".//*[@id='account']/a")).Click();
+        }
+
+        [When(@"User enter UserName and Password")]
+        public void WhenUserEnterUserNameAndPassword()
+        {
+            driver.FindElement(By.Id("log")).SendKeys("testuser_1");
+            driver.FindElement(By.Id("pwd")).SendKeys("Test@123");
+        }
+
+        [When(@"Click on the LogIn button")]
+        public void WhenClickOnTheLogInButton()
+        {
+            driver.FindElement(By.Id("login")).Click();
+        }
+
+        [When(@"User LogOut from the Application")]
+        public void WhenUserLogOutFromTheApplication()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"Successful LogIN message should display")]
+        public void ThenSuccessfulLogINMessageShouldDisplay()
+        {
+            //This Checks that if the LogOut button is displayed
+            true.Equals(driver.FindElement(By.XPath(".//*[@id='account_logout']/a")).Displayed);
+        }
+
+        [Then(@"Successful LogOut message should display")]
+        public void ThenSuccessfulLogOutMessageShouldDisplay()
+        {
+            ScenarioContext.Current.Pending();
+        }
+    }
+}
+
+
+
+*******************Cucumber Options***************
+
+ @CucumberOptions are like property files or settings for your test. Basically @CucumberOptions enables us to do all the things that we could have done if we have used cucumber command line. This is very helpful and of utmost importance, if we are using IDE such eclipse only to execute our project. You must have noticed that we set a few options in the 'TestRunner' class in the previous chapter.
+
+we have just set two different Cucumber Options. One is for Feature File and the other is for Step Definition file. We will talk about it in detail now but with this, we can say that @CucumberOptions are used to set some specific properties for the Cucumber test.
+
+Dry Run
+
+dryRun option can either set as true or false. If it is set as true, it means that Cucumber will only check that every Step mentioned in the Feature File has corresponding code written in Step Definition file or not. So in case any of the functions are missed in the Step Definition for any Step in Feature File, it will give us the message. For practice just add the code 'dryRun = true' in TestRunner class:
+
+@CucumberOptions(
+		features = "Feature"
+		,glue={"stepDefinition"}
+		,dryRun = true
+		)
+
+Monochrome
+
+This option can either set as true or false. If it is set as true, it means that the console output for the Cucumber test are much more readable. And if it is set as false, then the console output is not as readable as it should be. For practice just add the code 'monochrome = true' in TestRunner class
+
+@CucumberOptions(
+		features = "Feature"
+		,glue={"stepDefinition"}
+		,monochrome = false
+		)
+
+Features
+
+Features Options helps Cucumber to locate the Feature file in the project folder structure. You must have notices that we have been specifying the Feature Option in the TestRunner class since the first chapter. All we need to do is to specify the folder path and Cucumber will automatically find all the '.features' extension files in the folder. It can be specified like:
+
+features = "Feature"
+
+Or if the Feature file is in the deep folder structure
+
+features = "src/test/features"
+
+
+Glue
+
+It is almost the same think as Features Option but the only difference is that it helps Cucumber to locate the Step Definition file. Whenever Cucumber encounters a Step, it looks for a Step Definition inside all the files present in the folder mentioned in Glue Option. It can be specified like:
+
+glue = "stepDefinition"
+
+Or if the Step Definition file is in the deep folder structure
+
+glue = "src/test/stepDeinition"
+Format
+
+Format Option is used to specify different formatting options for the output reports. Various options that can be used as for-matters are:
+
+Pretty: Prints the Gherkin source with additional colors and stack traces for errors. Use below code:
+
+format = {"pretty"}
+
+HTML: This will generate a HTML report at the location mentioned in the for-matter itself. Use below code:
+
+format = {"html:Folder_Name"}
+
+JSON: This report contains all the information from the gherkin source in JSON Format. This report is meant to be post-processed into another visual format by 3rd party tools such as Cucumber Jenkins. Use the below code:
+
+format = {"json:Folder_Name/cucumber.json"}
+
+JUnit: This report generates XML files just like Apache Ant’s JUnit report task. This XML format is understood by most Continuous Integration servers, who will use it to generate visual reports. use the below code:
+
+format = { "junit:Folder_Name/cucumber.xml"}
+*************Background in Cucumber
+
+Background in Cucumber is used to define a step or series of steps that are common to all the tests in the feature file. It allows you to add some context to the scenarios for a feature where it is defined. A Background is much like a scenario containing a number of steps. But it runs before each and every scenario were for a feature in which it is defined.
+For example, to purchase a product on any E-Commerce website, you need to do the following steps:
+
+    Navigate to Login Page
+    Submit UserName and Password
+Feature: Test Background Feature
+Description: The purpose of this feature is to test the Background keyword
+
+Background: User is Logged In
+	Given I navigate to the login page
+	When I submit username and password
+	Then I should be logged in 
+
+Scenario: Search a product and add the first product to the User basket
+	Given User search for Lenovo Laptop
+	When Add the first laptop that appears in the search result to the basket
+	Then User basket should display with added item
+
+Scenario: Navigate to a product and add the same to the User basket
+	Given User navigate for Lenovo Laptop
+	When Add the laptop to the basket
+	Then User basket should display with added item
+
+A step definition file for background is also created
+
+Background with Hooks
+
+This is so interesting to see the working of Background with Hooks. The background is run before each of your scenarios but after any of your @Before hook.
+
+Good practices for using Background
+
+It is really necessary to understand the right usage of Background. As hooks as well give similar kind of functionality and moreover almost all the tasks can be done by hooks as well. This is why it is critical to use the background in the right place in the test.
+
+Feature Dependency
+
+Any feature level dependency should be tie with the background and any scenario level dependency should be tie with hooks.
+
+Keep Background short.
+
+You’re expecting the user to actually remember this stuff when reading your scenarios. If the background is more than 4 lines long, can you move some of the irrelevant details into high-level steps? See Calling Steps from Step Definitions.
+
+Make your Background section vivid.
+
+You should use colorful names and try to tell a story, because the human brain can keep track of stories much better than it can keep track of names like “User A”, “User B”, “Site 1”, and so on.
+
+*****************Cucumber Tags********************
+For this, Cucumber has already provided a way to organize your scenario execution by using tags in feature file. We can define each scenario with a useful tag. Later, in the runner file, we can decide which specific tag (and so as the scenario(s)) we want Cucumber to execute. Tag starts with “@”. After “@” you can have any relevant text to define your tag like @SmokeTests just above the scenarios you like to mark. Then to target these tagged scenarios just specify the tags names in the CucumberOptions as tags = {"@SmokeTests"}.
+
+Tagging not just specifically works with Scenarios, it also works with Features. Means you can also tag your features files. Any tag that exists on a Feature will be inherited by Scenario, Scenario Outline or Examples.
+
+
+Scenario: Increa@FunctionalTest
+Feature: ECommerce Application
+
+@SmokeTest @RegressionTest
+Scenario: Successful Login
+Given This is a blank test
+
+@RegressionTest
+Scenario: UnSuccessful Login
+Given This is a blank test
+
+In test runner file in @cucumberOptions(tags={"@regressiontest"})
+
+
+Logically ANDing and ORing Tags
+
+Tags that are comma-separated are ORed.
+
+In test runner file in @cucumberOptions(tags={"@regressiontest,@smoketest"})
+
+
+
+OR means scenarios that are tagged either as @SmokeTest OR @RegressionTest.
+
+Tags which are passed in separate quotes are ANDed
+
+
+In test runner file in @cucumberOptions(tags={"@regressiontest",@smoketest"})
+
+How to Ignore Cucumber Tests
+
+This is again a good feature of Cucumber Tags that you can even skip tests in the group execution. Special Character ~ is used to skip the tags. This also works both for Scenarios and Features. And this can also works in conjunction with AND or OR.
+
+
+
+*****************What are Hooks in Cucumber?*************
+
+Cucumber supports hooks, which are blocks of code that run before or after each scenario. You can define them anywhere in your project or step definition layers, using the methods @Before and @After. Cucumber Hooks allows us to better manage the code workflow and helps us to reduce the code redundancy. We can say that it is an unseen step, which allows us to perform our scenarios or tests.
+
+
+to perform the prerequisite steps before testing any test scenario. This prerequisite can be anything from:
+
+    Starting a webdriver
+    Setting up DB connections
+    Setting up test data
+    Setting up browser cookies
+    Navigating to certain page
+    or anything before the test
+
+In the same way, there are always after steps as well of the tests like:
+
+    Killing the webdriver
+    Closing DB connections
+    Clearing the test data
+    Clearing browser cookies
+    Logging out from the application
+    Printing reports or logs
+    Taking screenshots on error
+    or anything after the test
+
+
+
+
+    An important thing to note about the after hook is that even in case of test fail, after hook will execute for sure.
+    Method name can be anything, need not to be beforeScenario() or afterScenario(). can also be named as setUp() and tearDown().
+    *Make sure that the package import statement should be import cucumber.api.java.After; & import cucumber.api.java.Before;
+
+	
+Test Hooks with Example Scenarios
+Note: Again, in cucumber, every example is considered as a separate scenario. So the output is the same as the second example above.
+
+************************Tagged Hooks in Cucumber
+
+ if we have different perquisites for different scenarios. And we need to have different hooks for different scenarios
+
+Tagged Hooks in Cucumber
+
+Lets again start with doing a simple exercise to get the concept straight. Just keep three different scenarios in the feature file with the same Given, When & Then steps.
+-First step is to annotate required scenarios using @ + AnyName at the top of the Scenario. For this example, I just annotate each scenario with the sequence order of it, like @First, @Second & @Third.
+
+Create a Step definition file and just print the execution order of the steps in the console.
+Define tagged hooks in Hooks class file. Hooks can be used like @Before("@TagName"). Create before and after hooks for every scenario. I have also added normal before and after hooks, in case you are not aware, please go to the previous chapter of Hooks in Cucumber.
+@Before("@First")
+    public void beforeFirst(){
+        System.out.println("This will run only before the First Scenario");
+    }	
+
+	@Before("@Second")
+    public void beforeSecond(){
+        System.out.println("This will run only before the Second Scenario");
+    }	
+
+	@Before("@Third")
+    public void beforeThird(){
+        System.out.println("Thi
+We learned that @Before & @After hooks run before & after every Scenario. But @Before("@First") will run only before the first scenario and likewise other tagged hooks. Again, these tags names can be anything and no need to be first, second and third.
+
+
+Common Tagged Hooks for Multiple Scenarios
+
+We can have common tagged hooks for multiple scenarios as well. In the below example, I just combined the @Before("First") and @Before("Third") by @Before("@First, @Third"). So in this way we do not need to have two different hooks logic.
+
+**************Execution Order of Hooks:
+
+How to set the Order or Priority of Cucumber Hooks?
+
+The very important thing to note here is:
+
+    @Before(order = int) : This runs in increment order, means value 0 would run first and 1 would be after 0.
+    @After(order = int) : This runs in decrements order, means apposite of @Before. Value 1 would run first and 0 would be after 1.
+
+
+*********************MAPS:
+
+
+Scenario: Successful Login with Valid Credentials
+	Given User is on Home Page
+	When User Navigate to LogIn Page
+	And User enters Credentials to LogIn
+	| Username   | Password |
+    | testuser_1 | Test@153 |
+	Then Message displayed Login Successfully
+
+
+@When("^User enters Credentials to LogIn$")
+	public void user_enters_testuser_and_Test(DataTable usercredentials) throws Throwable {
+
+		//Write the code to handle Data Table
+		List<Map<String,String>> data = usercredentials.asMaps(String.class,String.class);
+		driver.findElement(By.id("log")).sendKeys(data.get(0).get("Username")); 
+	    driver.findElement(By.id("pwd")).sendKeys(data.get(0).get("Password"));
+	    driver.findElement(By.id("login")).click();
+           }
+
+
+Maps in Data Tables with Multiple Test Data
+
+In this test we will pass Username and Password two times to the test step. So our test should enter Username & Password once, click on LogIn button and repeat the same steps again.
+
+Feature File Scenario
+
+Scenario: Successful Login with Valid Credentials
+	Given User is on Home Page
+	When User Navigate to LogIn Page
+	And User enters Credentials to LogIn
+	| Username   | Password |
+    | testuser_1 | Test@153 |
+    | testuser_2 | Test@154 |
+	Then Message displayed Login Successfully
+
+The implementation of the above step will be like this:
+
+	@When("^User enters Credentials to LogIn$")
+	public void user_enters_testuser_and_Test(DataTable usercredentials) throws Throwable {
+
+		//Write the code to handle Data Table
+		for (Map<String, String> data : usercredentials.asMaps(String.class, String.class)) {
+			driver.findElement(By.id("log")).sendKeys(data.get("Username")); 
+		    driver.findElement(By.id("pwd")).sendKeys(data.get("Password"));
+		    driver.findElement(By.id("login")).click();
+			}
+
+	}
+
+
+
+
+Map Data Tables to Class Objects
+
+Luckily there are easier ways to access your data than DataTable. For instance you can create a Class-Object and have Cucumber map the data in a table to a list of these.
+
+Feature File Scenario
+
+Scenario: Successful Login with Valid Credentials
+	Given User is on Home Page
+	When User Navigate to LogIn Page
+	And User enters Credentials to LogIn
+	| Username   | Password |
+    | testuser_1 | Test@153 |
+    | testuser_2 | Test@154 |
+	Then Message displayed Login Successfully
+
+The implementation of the above step will be like this:
+
+	@When("^User enters Credentials to LogIn$")
+	public void user_enters_testuser_and_Test(List<Credentials>  usercredentials) throws Throwable {
+
+		//Write the code to handle Data Table
+		for (Credentials credentials : usercredentials) {			
+			driver.findElement(By.id("log")).sendKeys(credentials.getUsername()); 
+		    driver.findElement(By.id("pwd")).sendKeys(credentials.getPassword());
+		    driver.findElement(By.id("login")).click();
+			}		
+	}
+
+Class Credentials
+
+package stepDefinition;
+
+public class Credentials {
+	private String username;
+	private String password;
+
+	public String getUsername() {
+        return username;
+    }
+	public String getPassword() {
+        return password;
+    }	
+}
+
+Prachis@92
+
+
+DATA TABLES:
+
+
+
+Scenario: Successful Login with Valid Credentials
+	Given User is on Home Page
+	When User Navigate to LogIn Page
+	And User enters Credentials to LogIn
+    | testuser_1 | Test@153 |
+	Then Message displayed Login Successfully
+
+The implementation of the above step will belike this:
+	@When("^User enters Credentials to LogIn$")
+	public void user_enters_testuser__and_Test(DataTable usercredentials) throws Throwable {
+
+		//Write the code to handle Data Table
+		List<List<String>> data = usercredentials.raw();
+
+		//This is to get the first data of the set (First Row + First Column)
+		driver.findElement(By.id("log")).sendKeys(data.get(0).get(0)); 
+
+		//This is to get the first data of the set (First Row + Second Column)
+	    driver.findElement(By.id("pwd")).sendKeys(data.get(0).get(1));
+
+	    driver.findElement(By.id("login")).click();
+	}
+
+
+
+Tagged Hooks in Cucumber
+
+
+irst step is to annotate required scenarios using @ + AnyName at the top of the Scenario. For this example, I just annotate each scenario with the sequence order of it, like @First, @Second & @Third.
+
+Create a Step definition file and just print the execution order of the steps in the console.
+
+Define tagged hooks in Hooks class file. Hooks can be used like @Before("@TagName"). Create before and after hooks for every scenario. I have also added normal before and after hooks, in case you are not aware, please go to the previous chapter of Hooks in Cucumber.
+
+Note: We learned that @Before & @After hooks run before & after every Scenario. But @Before("@First") will run only before the first scenario and likewise other tagged hooks. Again, these tags names can be anything and no need to be first, second and third.
+
+    Run the feature file and observe the output.
+
+
+Common Tagged Hooks for Multiple Scenarios
+
+We can have common tagged hooks for multiple scenarios as well. In the below example, I just combined the @Before("First") and @Before("Third") by @Before("@First, @Third"). So in this way we do not need to have two different hooks logic.
+
+
+
+Background in Cucumber is used to define a step or series of steps that are common to all the tests in the feature file. It allows you to add some context to the scenarios for a feature where it is defined. A Background is much like a scenario containing a number of steps. But it runs before each and every scenario were for a feature in which it is defined.
+
+
+
+Feature: Test Background Feature
+Description: The purpose of this feature is to test the Background keyword
+
+Background: User is Logged In
+	Given I navigate to the login page
+	When I submit username and password
+	Then I should be logged in 
+
+Scenario: Search a product and add the first product to the User basket
+	Given User search for Lenovo Laptop
+	When Add the first laptop that appears in the search result to the basket
+	Then User basket should display with added item
+
+Scenario: Navigate to a product and add the same to the User basket
+	Given User navigate for Lenovo Laptop
+	When Add the laptop to the basket
+	Then User basket should display with added item
+
+
+
+
+Any feature level dependency should be tie with the background and any scenario level dependency should be tie with hooks.
+You’re expecting the user to actually remember this stuff when reading your scenarios. If the background is more than 4 lines long, can you move some of the irrelevant details into high-level steps? See Calling Steps from Step Definitions.
+
+Make your Background section vivid.
+
+You should use colorful names and try to tell a story, because the human brain can keep track of stories much better than it can keep track of names like “User A”, “User B”, “Site 1”, and so on.
+
+
+The main advantage of Page Object Model is that if the UI or any HTML object changes for any page, the test does not need any fix. Only the code within the page objects will be impacted but it does not have any impact to the test.
+
+
+How to implement the Page Object Model?
+
+There are two different ways of implementing POM:
+
+1) Regular Java classes: Please visit Page Object Model.
+
+Note: This is not recommended, as Selenium has offer us a better solution for this, which is Selenium PageFactory.
+
+    Selenium PageFactory : Page Factory is an inbuilt Page Object Model concept for Selenium WebDriver and it is very optimized. To learn more on Page Factory, please visit our tutorial Page Object Pattern using Selenium PageFactory.
+
+PageFactory is used to Initialize Elements of a Page class without having to use ‘FindElement‘ or ‘FindElements‘. Annotations can be used to supply descriptive names of target objects to improve code readability
+
+
+
+
+To check if jquery is active on current page:
+jQuery.active in the console editor and press Enter.
+
+Handle Ajax call Using JavaScriptExecutor in Selenium?
+
+Our test will fail tentatively due to these situations. Hence its always wise idea to wait for Ajax call to complete. This can be done using our JavaScriptExecutor interface. The idea is simple, if all the JQuery executions are completed, then it will return jQuery.active == 0 which we can use 
+
+
+
+    @BeforeSuite
+    @BeforeTest
+    @BeforeClass
+    @BeforeMethod
+    @Test
+    @AfterMethod
+    @AfterClass
+    @AfterTest
+    @AfterSuite
+
+200
+	
+
+OK
+	
+
+The request was successfully completed.
+
+201
+	
+
+Created
+	
+
+A new resource was successfully created.
+
+400
+	
+
+Bad Request
+	
+
+The request was invalid.
+
+401
+	
+
+Unauthorized
+	
+
+The request did not include an authentication token or the authentication token was expired.
+
+403
+	
+
+Forbidden
+	
+
+The client did not have permission to access the requested resource.
+
+404
+	
+
+Not Found
+	
+
+The requested resource was not found.
+
+405
+	
+
+Method Not Allowed
+	
+
+The HTTP method in the request was not supported by the resource. For example, the DELETE method cannot be used with the Agent API.
+
+409
+	
+
+Conflict
+	
+
+The request could not be completed due to a conflict. For example,  POST ContentStore Folder API cannot complete if the given file or folder name already exists in the parent location.
+
+500
+	
+
+Internal Server Error
+	
+
+The request was not completed due to an internal error on the server side.
+
+503
+	
+
+Service Unavailable
+	
+
+The server was unavailable.
