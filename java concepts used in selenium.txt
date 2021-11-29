@@ -1,0 +1,159 @@
+OOPS Concepts – A Quick Revision
+
+As we all know, Java is an Object-Oriented Programming Language that follows the three building blocks i.e. Inheritance, Polymorphism, and Encapsulation.
+
+Below is a quick revision of all the three OOPS concepts.
+#1) Inheritance
+
+Inheritance is the mechanism in which a child class or a subclass gets the properties of the base class or parent class so that we can easily reuse the methods of the base class in a subclass. Inheritance is accomplished by the word “extends”.
+#2) Encapsulation
+
+Encapsulation is the process of wrapping up code and data together in a single unit. It is used to hide the data of a class from another class. Encapsulation can be achieved when you declare all variables as private and a public method in a class to get the values of the variable.
+#3) Polymorphism
+
+Polymorphism is best explained by the verb “One Interface Multiple Method”. It allows us to perform a task in multiple ways. It is a combination of Method Overriding (Static Polymorphism) and Method Overloading (Dynamic Polymorphism).
+Implementation Of OOPS Concepts
+
+As we know the basic definition of the OOPS principles, we will now focus on how these concepts are implemented in your Selenium Testing and what are the potential examples of OOPS in Selenium.
+
+#1) Inheritance
+
+In a typical Page Object Model, we create a Base Class where we initialize WebDriver interface, Data Source, Excel Reader, Property File or Config File, WebDriver waits and so on. We extend the Base Class in our Test Class and Utility Class.
+
+We do it by using the extends keyword and achieve the Inheritance. This facilitates the reusability of the class and we don’t have to write the same initialization code over and over again. This not only promotes reusability but it also shortens the code that improves the Time and Space Complexity of your suite.
+
+#2) Encapsulation
+
+In a POM Project, we know that we create a separate class for every page. All these classes are the best examples of Encapsulation where we keep the data of a class separated from the other class.
+
+In these POM Classes, we declare the data members using @FindBy and initialize them using a constructor with initElement() to utilize them in the test methods.
+
+#3) Polymorphism
+
+Polymorphism relies on the concept of one interface supporting multiple methods. As we know, WebDriver is an interface that supports multiple methods of different browsers like ChromeDriver(), IEDriver(), SafariDriver() and FirefoxDriver().
+
+Hence the following line of codes will work to instantiate the browsers in two different ways.
+
+Using WebDriver Interface
+
+WebDriver driver = new ChromeDriver();
+
+Here, we are using WebDriver Interface to instantiate the Chrome Browser.
+
+This WebDriver interface supports all the methods that are there in the ChromeDriver class and the same can be rewritten for Firefox browsers which support methods of the FirefoxDriver class.
+
+WebDriver driver = new FirefoxDriver();
+
+Without Using WebDriver Interface
+
+ChromeDriver driver = new ChromeDriver();
+
+Here, we are creating a reference for the ChromeDriver class and it will only support the methods that are there in the ChromeDriver class.
+Method Overloading In Selenium
+
+Methods Overloading is a process of using the two methods in the same class with the same name and different parameters.
+
+For Example,
+
+Testing(int a, char b)
+Testing(char b)
+
+Now in Selenium, we all use Implicit Wait to make the page wait for some specified time interval.
+
+This is the best example of Method Overloading as we can provide different Timestamp or TimeUnit like SECONDS, MINUTES, etc.
+Method Overriding In Selenium
+
+Method overriding is a process where a method in the child class has the same name and the same parameters as that of the method in its base class.
+
+When we talk about the child class and the base class, we assume that both the classes are in an “is-a” relationship which is nothing but the inheritance.
+Examples of Method Overriding
+
+In the WebDriver interface, we use two different methods for navigating or accessing any website i.e. driver.get() and driver.navigate().to().
+
+These two methods are examples of Method Overriding.
+
+Enlisted below is the basic difference between the navigate() and get() method and this is frequently asked in Selenium Interviews.
+
+    get() method will wait till the page is completely loaded in the browser while navigate() would not.
+    navigate() method essentially returns a Navigate Interface which allows a user to traverse back, forward, or refresh pages as you would do in an actual browser window, while this functionality is not possible with the get() method
+
+Collection Class Hierarchy For Java Selenium
+
+We will discuss the major collection class concepts that are applicable for Selenium Testing. We will start with the hierarchy and provide the details about important collection class, list, and set.
+
+Collection Hierarchy
+
+In the below figure, the rectangles stand for interfaces while the oval stands for classes.
+
+Collection Hierarchy in Java
+Collection Class And Its Usage In Selenium
+
+Collection can be seen as a container that contains a group of items or objects. In Selenium, we generally use Set, Map and List interfaces for storing the WebElements such as window handle, object, and key values.
+
+Now the question is where do we implement these collections in our framework say POM project.
+
+In our page object model (as discussed already), we create different classes for every page and there would be a situation when we want to switch the tabs and do some operation in the current tab. Here we use our collection interface called Set.
+
+The return type of every window is stored as a string and the group of the window is stored in a Set of type String.
+
+The program below demonstrates the usage of the Collection Interface.
+package Misc;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+ 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+ 
+public class OpenInNewTabWindowHandle {
+ 
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        System.setProperty("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.get("https://www.google.com");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("TESTINg");
+        element.submit();
+        String str = Keys.chord(Keys.CONTROL, Keys.RETURN);
+        WebElement element2 =      driver.findElement(By.partialLinkText("Software testing - Wikipedia"));
+        element2.sendKeys(str);
+        String str2 = driver.getWindowHandle();
+        Set<String> str3 = driver.getWindowHandles();
+        for(String obj: str3) {
+        if(!obj.equals(str2)) {
+            driver.switchTo().window(obj);
+        }
+        }
+         
+    }
+ 
+}
+
+Explanation Of The Above Program
+
+After we click on the Wikipedia page by using partialLinkText(), the objective was to set the newly opened window as the current window.
+
+For this, we have created a string called str2, where we have stored the current window handle and a set of type string str3 in which we have stored all the window handles. Using a ForEach loop with if condition, we have set the current window.
+
+Another programming example that demonstrates the usage of Collection class is the implementation of HashMap.
+HashMap<String, Object> map = new HashMap<String, Object>();
+map.put("profile.default_content_setting_values.notifications", 2);
+ChromeOptions options = new ChromeOptions();
+options.setExperimentalOption("prefs", map);
+WebDriver driver = new ChromeDriver(options);
+
+Explanation Of The Above Code
+
+This code snippet is used for handling any browser alert that is thrown. Here we have initialized a HashMap of keys with type as String and values as Integer.
+
+Using the inbuilt function put(), we have overridden the default setting of the browser and using setExperimentalOption() function, we have set our preferences into the browser.
+Conclusion
+
+To conclude we can say that, we are now familiar with the three basic principles of OOPS and how these concepts are incorporated in the Selenium.
+
+We have also learned about Method Overloading and Overriding, Collection class, usage of the collection in Selenium.
